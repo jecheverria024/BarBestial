@@ -31,7 +31,7 @@ public class ColaEntrada {
 	
 	private boolean comprobarColaCompleta(){
 		boolean lleno=false;
-		if(cartas.longitud()+1==5){ //si empieza en cero esta bien 
+		if(cartas.longitud()==5){ //si empieza en cero esta bien 
 			lleno=true;
 		}
 		return lleno;
