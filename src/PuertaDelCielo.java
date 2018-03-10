@@ -4,7 +4,7 @@ public class PuertaDelCielo {
 	private static PuertaDelCielo mPuertaDelCielo;
 	
 	private PuertaDelCielo(){
-		
+		cartas= new ListaCartas();
 	}
 	
 	public static PuertaDelCielo getPuertaDelCielo(){

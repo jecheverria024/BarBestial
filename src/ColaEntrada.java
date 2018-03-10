@@ -5,7 +5,7 @@ public class ColaEntrada {
 	private static ColaEntrada mColaEntrada;
 	
 	private ColaEntrada(){
-		
+		cartas=new ListaCartas();
 	}
 	public static ColaEntrada getColaEntrada(){
 		if(mColaEntrada==null){
@@ -31,10 +31,10 @@ public class ColaEntrada {
 	
 	private boolean comprobarColaCompleta(){
 		boolean lleno=false;
-		if(cartas.longitud()==5){ //si empieza en cero esta bien 
+		if(cartas.longitud()==4){ //si empieza en cero esta bien 
 			lleno=true;
 		}
 		return lleno;
 	}
-
+	
 }

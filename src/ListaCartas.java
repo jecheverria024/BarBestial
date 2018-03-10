@@ -6,7 +6,7 @@ public class ListaCartas {
 	private ArrayList<CartaAnimal> lista;
 	
 	public ListaCartas(){
-	
+	lista=new ArrayList<CartaAnimal>();
 	}
 	public int longitud(){
 		return lista.size();
@@ -22,7 +22,7 @@ public class ListaCartas {
 		lista.remove(c);
 	}
 	public CartaAnimal conseguirCarta(){
-		return lista.get(1);
+		return lista.get(0);
 	}
 	public CartaAnimal ultimaCarta(){
 		Iterator<CartaAnimal> it= getIterador();

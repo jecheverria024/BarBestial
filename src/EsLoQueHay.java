@@ -4,7 +4,7 @@ public class EsLoQueHay {
 	private static EsLoQueHay mEsLoQueHay;
 	
 	private EsLoQueHay(){
-		
+		cartas=new ListaCartas();
 	}
 	
 	public static EsLoQueHay getEsLoQueHay(){
@@ -16,5 +16,8 @@ public class EsLoQueHay {
 	
 	public void addLast(CartaAnimal c){
 		cartas.add(c);
+	}
+	public ListaCartas getListCartas(){
+		return cartas;
 	}
 }
