@@ -1,3 +1,4 @@
+package packTest;
 
 
 import static org.junit.Assert.*;
@@ -5,6 +6,8 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import packModelo.ColaEntrada;
 
 public class ColaEntradaTest {
 	ColaEntrada c= ColaEntrada.getColaEntrada();

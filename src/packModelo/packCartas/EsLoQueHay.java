@@ -1,3 +1,4 @@
+package packModelo.packCartas;
 
 public class EsLoQueHay {
 	private ListaCartas cartas;

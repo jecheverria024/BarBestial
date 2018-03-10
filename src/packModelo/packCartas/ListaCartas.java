@@ -1,3 +1,4 @@
+package packModelo.packCartas;
 import java.util.ArrayList;
 
 import java.util.Iterator;
@@ -25,11 +26,6 @@ public class ListaCartas {
 		return lista.get(0);
 	}
 	public CartaAnimal ultimaCarta(){
-		Iterator<CartaAnimal> it= getIterador();
-		CartaAnimal c=it.next();
-		while(it.hasNext()){
-			c=it.next();
-		}
-		return c;
+		return lista.get(lista.size()-1);
 	}
 }

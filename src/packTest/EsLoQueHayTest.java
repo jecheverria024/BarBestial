@@ -1,3 +1,4 @@
+package packTest;
 
 
 
@@ -7,9 +8,12 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class PuertaDelCieloTest {
+import packModelo.packCartas.CartaAnimal;
+import packModelo.packCartas.EsLoQueHay;
+
+public class EsLoQueHayTest {
+	EsLoQueHay e= EsLoQueHay.getEsLoQueHay();
 	CartaAnimal c= new CartaAnimal();
-	PuertaDelCielo p= PuertaDelCielo.getPuertaDelCielo();
 	@Before
 	public void setUp() throws Exception {
 	}
@@ -19,8 +23,10 @@ public class PuertaDelCieloTest {
 	}
 
 	@Test
-	public void testAdd() {
-		p.add(c);
+	public void testAddLast() {
+		e.addLast(c);
+		System.out.println(e.getListCartas());
 	}
+	
 
 }

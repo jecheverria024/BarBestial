@@ -1,4 +1,9 @@
+package packModelo;
 
+import packModelo.packCartas.CartaAnimal;
+import packModelo.packCartas.EsLoQueHay;
+import packModelo.packCartas.ListaCartas;
+import packModelo.packCartas.PuertaDelCielo;
 
 public class ColaEntrada {
 	private ListaCartas cartas;
@@ -16,22 +21,20 @@ public class ColaEntrada {
 	public void revisarCola(){
 		boolean lleno=comprobarColaCompleta();
 		if(lleno){
-			PuertaDelCielo p= PuertaDelCielo.getPuertaDelCielo();
-			EsLoQueHay e=EsLoQueHay.getEsLoQueHay();
 			for(int i=0;i<2;i++){
 				CartaAnimal c=cartas.conseguirCarta();
-				p.add(c);
+				PuertaDelCielo.getPuertaDelCielo().add(c);
 				cartas.borrarCarta(c);
 			}
 			CartaAnimal c1=cartas.ultimaCarta();
-			e.addLast(c1);
+			EsLoQueHay.getEsLoQueHay().addLast(c1);
 			cartas.borrarCarta(c1);
 		}
 	}
 	
 	private boolean comprobarColaCompleta(){
 		boolean lleno=false;
-		if(cartas.longitud()==4){ //si empieza en cero esta bien 
+		if(cartas.longitud()==5){ 
 			lleno=true;
 		}
 		return lleno;

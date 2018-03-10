@@ -1,3 +1,4 @@
+package packModelo.packCartas;
 
 public class PuertaDelCielo {
 	private ListaCartas cartas;
