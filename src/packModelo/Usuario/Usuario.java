@@ -10,7 +10,9 @@ public class Usuario {
 	private EnumColor color;
 	private int puntos;
 	
+	
 	public Usuario(EnumColor pColor, int pPuntos){
+		
 		puntos=pPuntos;
 		color=pColor;
 		mano=new ListaCartas();

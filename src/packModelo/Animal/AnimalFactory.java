@@ -4,7 +4,7 @@ package packModelo.Animal;
 public class AnimalFactory {
 	private static AnimalFactory mAnimalFactory;
 
-	public static AnimalFactory getBarcoFactory() {
+	public static AnimalFactory getAnimalFactory() {
 		if (mAnimalFactory == null) {
 			mAnimalFactory = new AnimalFactory();
 		}
