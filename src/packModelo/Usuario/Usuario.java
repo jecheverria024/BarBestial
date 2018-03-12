@@ -44,6 +44,7 @@ public class Usuario {
 		return  puntos;
 	}
 	private ListaCartas inicializarMazo(EnumColor pColor) {
+		
 		return new ListaCartas();
 	}
 	
