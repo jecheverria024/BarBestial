@@ -2,10 +2,10 @@ package packModelo;
 
 import packModelo.Usuario.Jugador;
 import packModelo.Usuario.Ordenador;
-import packModelo.packBarcos.BarcoNoEncException;
+//import packModelo.packBarcos.BarcoNoEncException;
 import packModelo.packCartas.ListaCartas;
 import packModelo.packCartas.PuertaDelCielo;
-import packModelo.packJugador.Usuario;
+import packModelo.Usuario.Jugador;
 
 public class BarBestial {
 	private static BarBestial mBarBestial;
@@ -27,8 +27,15 @@ public class BarBestial {
 	}
 	
 	private void inicializar() {
-		jugador =new Jugador(EnumColor.ROJO,0, "jug");
-		ordenador =new Ordenador(EnumColor.AMARILLO,0);
+		jugador = Jugador.getJugador();
+		jugador.actualizarPuntos(0);
+		jugador.asignarColor(EnumColor.ROJO);
+		jugador.asignarNombre("jug");
+				
+		ordenador = Ordenador.getOrdenador();
+		ordenador.asignarColor(EnumColor.AMARILLO);
+		ordenador.actualizarPuntos(0);
+		
 		turno = true;
 		juegoFinalizado = false;
 		/*jugador.barajar();

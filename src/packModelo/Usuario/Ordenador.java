@@ -8,9 +8,9 @@ public class Ordenador  extends Usuario{
 		super(pColor, pPuntos);
 		
 	}
-	public  Ordenador getOrdenador(){
+	public static Ordenador getOrdenador(){
 		if(mOrdenador==null){
-			mOrdenador= new Ordenador(getColor(), getPuntos());
+			mOrdenador= new Ordenador(color, puntos);
 		}
 		return mOrdenador;
 	}
@@ -18,5 +18,15 @@ public class Ordenador  extends Usuario{
 	public void jugar() {
 		
 	}
-
+	public void asignarColor(EnumColor pColor){
+		
+	}
+	
+	public void actualizarPuntos(int pPuntos){
+		
+	}
+	
+	public void asignarNombre(String pNombre){
+		
+	}
 }

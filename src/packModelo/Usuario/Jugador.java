@@ -11,9 +11,9 @@ public class Jugador extends Usuario {
 		
 	}
 	
-	public Jugador getJugador(){
+	public static Jugador getJugador(){
 		if(mJugador==null){
-			mJugador= new Jugador(getColor(), getPuntos(), nom);
+			mJugador= new Jugador();
 		}
 		return mJugador;
 	}
@@ -22,7 +22,17 @@ public class Jugador extends Usuario {
 		return nom;
 	}
 	
+	public void asignarColor(EnumColor pColor){
+		
+	}
 	
+	public void actualizarPuntos(int pPuntos){
+		
+	}
+	
+	public void asignarNombre(String pNombre){
+		
+	}
 	
 	
 	
