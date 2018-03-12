@@ -32,12 +32,17 @@ public class ColaEntrada {
 		}
 	}
 	
+	
 	private boolean comprobarColaCompleta(){
 		boolean lleno=false;
 		if(cartas.longitud()==5){ 
 			lleno=true;
 		}
 		return lleno;
+	}
+	
+	public void echarCarta(CartaAnimal pCarta) {
+		cartas.add(pCarta);
 	}
 	
 }

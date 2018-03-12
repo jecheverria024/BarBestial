@@ -1,6 +1,6 @@
 package packModelo.packCartas;
 import java.util.ArrayList;
-
+import java.util.Collections;
 import java.util.Iterator;
 
 public class ListaCartas {
@@ -27,5 +27,8 @@ public class ListaCartas {
 	}
 	public CartaAnimal ultimaCarta(){
 		return lista.get(lista.size()-1);
+	}
+	public void barajar() {
+		Collections.shuffle(lista);
 	}
 }

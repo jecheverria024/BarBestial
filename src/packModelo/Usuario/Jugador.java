@@ -11,6 +11,10 @@ public class Jugador extends Usuario {
 		
 	}
 	
+	public String getNombre() {
+		return nom;
+	}
+	
 	
 	
 	
