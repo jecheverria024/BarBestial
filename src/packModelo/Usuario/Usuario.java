@@ -45,6 +45,9 @@ public class Usuario {
 	public int getPuntos() {
 		return  puntos;
 	}
+	public EnumColor getColor(){
+		return color;
+	}
 	private ListaCartas inicializarMazo(EnumColor pColor) {
 		mazo= new ListaCartas();
 		String pImagen;
