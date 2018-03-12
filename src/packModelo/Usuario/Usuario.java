@@ -4,6 +4,8 @@ import java.util.Collections;
 
 import packModelo.ColaEntrada;
 import packModelo.EnumColor;
+import packModelo.Animal.Animal;
+import packModelo.Animal.AnimalFactory;
 import packModelo.packCartas.CartaAnimal;
 import packModelo.packCartas.ListaCartas;
 
@@ -44,8 +46,15 @@ public class Usuario {
 		return  puntos;
 	}
 	private ListaCartas inicializarMazo(EnumColor pColor) {
-		
-		return new ListaCartas();
+		mazo= new ListaCartas();
+		String pImagen;
+		for (int i=1;i<12;i++){
+			Animal a= AnimalFactory.getAnimalFactory().crearAnimal(i);
+			pImagen=a.getClass().getName(); 
+			CartaAnimal c= new CartaAnimal(pImagen,i,pColor,a);
+			mazo.add(c);
+		}
+		return mazo;
 	}
 	
 	public void barajar() {

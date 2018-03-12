@@ -1,10 +1,27 @@
 package packModelo.packCartas;
 
-public class CartaAnimal extends CartaGeneral {
+import packModelo.EnumColor;
+import packModelo.Animal.Animal;
 
-	public CartaAnimal(String pImagen) {
+public class CartaAnimal extends CartaGeneral {
+	private int fuerza;
+	private EnumColor color;
+	private Animal animal;
+	
+	public CartaAnimal(String pImagen, int pFuerza, EnumColor pColor) {
+		
+	}
+
+	public CartaAnimal(String pImagen,int pFuerza, EnumColor pColor, Animal a) {
+		// TODO Auto-generated constructor stub
 		super(pImagen);
 		// TODO Auto-generated constructor stub
+		fuerza=pFuerza;
+		color=pColor;
+		animal=a;
 	}
+	
+	
+	
 
 }
