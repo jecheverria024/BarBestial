@@ -8,5 +8,9 @@ public class Ordenador  extends Usuario{
 		super(pColor, pPuntos);
 		
 	}
+	
+	public void jugar() {
+		
+	}
 
 }

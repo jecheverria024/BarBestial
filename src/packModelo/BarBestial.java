@@ -2,6 +2,7 @@ package packModelo;
 
 import packModelo.Usuario.Jugador;
 import packModelo.Usuario.Ordenador;
+import packModelo.packBarcos.BarcoNoEncException;
 import packModelo.packCartas.ListaCartas;
 import packModelo.packCartas.PuertaDelCielo;
 import packModelo.packJugador.Usuario;
@@ -30,13 +31,22 @@ public class BarBestial {
 		ordenador =new Ordenador(EnumColor.AMARILLO,0);
 		turno = true;
 		juegoFinalizado = false;
-		jugador.barajar();
+		/*jugador.barajar();
 		ordenador.barajar();
 		for (int i=0 ; i<4;i++) {
 			jugador.cogerCarta();
 			ordenador.cogerCarta();
-		}
+		}*/
 
+	}
+	public void setTurno(boolean pTurno) {
+		turno = pTurno;
+		if (!turno) {
+			if(!ordenador.comprobarCartas()) {
+				ordenador.jugar();
+			}else finalizarPartida();
+			
+		}
 	}
 	
 	private boolean finalizarPartida() {
