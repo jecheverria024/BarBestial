@@ -19,7 +19,7 @@ public class Usuario {
 		puntos=pPuntos;
 		color=pColor;
 		mano=new ListaCartas();
-		mazo=inizializarMazo(pColor);
+		mazo=inicializarMazo(pColor);
 	}
 	
 	public boolean echarCarta(CartaAnimal pCarta){
