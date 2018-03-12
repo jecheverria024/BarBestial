@@ -48,6 +48,7 @@ public class BarBestial {
 			
 		}
 	}
+	//aqui hay dudas
 	
 	private boolean finalizarPartida() {
 		if(!jugador.comprobarCartas()) {
