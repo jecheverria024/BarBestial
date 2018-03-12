@@ -8,9 +8,7 @@ public class CartaAnimal extends CartaGeneral {
 	private EnumColor color;
 	private Animal animal;
 	
-	public CartaAnimal(String pImagen, int pFuerza, EnumColor pColor) {
-		
-	}
+	
 
 	public CartaAnimal(String pImagen,int pFuerza, EnumColor pColor, Animal a) {
 		// TODO Auto-generated constructor stub
