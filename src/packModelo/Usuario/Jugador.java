@@ -5,15 +5,16 @@ import packModelo.EnumColor;
 public class Jugador extends Usuario {
 	private String nom;
 	private static Jugador mJugador;
-	private Jugador(EnumColor pColor, int pPuntos, String pNom) {
+	
+	private Jugador(EnumColor pColor, int pPuntos) {
 		super(pColor, pPuntos);
-		nom=pNom;
+		//nom=pNom;
 		
 	}
 	
 	public static Jugador getJugador(){
 		if(mJugador==null){
-			mJugador= new Jugador();
+			mJugador= new Jugador(EnumColor.AZUL,0);
 		}
 		return mJugador;
 	}
@@ -31,7 +32,7 @@ public class Jugador extends Usuario {
 	}
 	
 	public void asignarNombre(String pNombre){
-		
+		this.nom=pNombre;
 	}
 	
 	

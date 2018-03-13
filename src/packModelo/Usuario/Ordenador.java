@@ -10,7 +10,7 @@ public class Ordenador  extends Usuario{
 	}
 	public static Ordenador getOrdenador(){
 		if(mOrdenador==null){
-			mOrdenador= new Ordenador(color, puntos);
+			mOrdenador= new Ordenador(EnumColor.AMARILLO, 0);
 		}
 		return mOrdenador;
 	}
