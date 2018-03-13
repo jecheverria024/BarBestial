@@ -8,9 +8,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 import packModelo.ColaEntrada;
+import packModelo.EnumColor;
+import packModelo.Animal.*;
+import packModelo.packCartas.*;
 
 public class ColaEntradaTest {
-	ColaEntrada c= ColaEntrada.getColaEntrada();
 	@Before
 	public void setUp() throws Exception {
 		
@@ -22,7 +24,14 @@ public class ColaEntradaTest {
 
 	@Test
 	public void testComprobarColaCompleta() {
-		c.revisarCola();
+		ColaEntrada c= ColaEntrada.getColaEntrada();
+		c.add(new CartaAnimal(" ",3,EnumColor.ROJO, new Leon()));
+		c.add(new CartaAnimal(" ",3,EnumColor.ROJO, new Leon()));
+		c.add(new CartaAnimal(" ",3,EnumColor.ROJO, new Leon()));
+		c.add(new CartaAnimal(" ",3,EnumColor.ROJO, new Leon()));
+		c.add(new CartaAnimal(" ",3,EnumColor.ROJO, new Leon()));
+		assertTrue(c.revisarCola());
+		
 	}
 
 }
