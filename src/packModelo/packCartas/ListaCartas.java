@@ -28,6 +28,9 @@ public class ListaCartas {
 	public CartaAnimal ultimaCarta(){
 		return lista.get(lista.size()-1);
 	}
+	public CartaAnimal getCarta(int i){
+		return lista.get(i);
+	}
 	public void barajar() {
 		Collections.shuffle(lista);
 	}

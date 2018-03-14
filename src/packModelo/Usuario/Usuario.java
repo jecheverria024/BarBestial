@@ -24,7 +24,8 @@ public class Usuario {
 		mazo=inicializarMazo(pColor);
 	}
 	
-	public boolean echarCarta(CartaAnimal pCarta){
+	public boolean echarCarta(int pi){
+		CartaAnimal pCarta=mano.getCarta(pi);
 		ColaEntrada.getColaEntrada().echarCarta(pCarta);
 		mano.borrarCarta(pCarta);
 		return comprobarCartas();

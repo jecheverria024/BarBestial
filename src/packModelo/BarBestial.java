@@ -50,8 +50,8 @@ public class BarBestial {
 			
 		}
 	}
-	public void echarCarta(CartaAnimal pCarta) {
-		if(!jugador.echarCarta(pCarta)) {
+	public void echarCarta(int pi) {
+		if(!jugador.echarCarta(pi)) {
 			if(finalizarPartida()) {
 				juegoFinalizado=true;
 			}
