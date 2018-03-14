@@ -2,6 +2,7 @@ package packModelo;
 
 import packModelo.Usuario.Jugador;
 import packModelo.Usuario.Ordenador;
+import packModelo.packCartas.CartaAnimal;
 //import packModelo.packBarcos.BarcoNoEncException;
 import packModelo.packCartas.ListaCartas;
 import packModelo.packCartas.PuertaDelCielo;
@@ -28,14 +29,8 @@ public class BarBestial {
 	
 	private void inicializar() {
 		jugador = Jugador.getJugador();
-		jugador.actualizarPuntos(0);
-		jugador.asignarColor(EnumColor.ROJO);
-		jugador.asignarNombre("jug");
-				
+		jugador.asignarNombre("jug");	
 		ordenador = Ordenador.getOrdenador();
-		ordenador.asignarColor(EnumColor.AMARILLO);
-		ordenador.actualizarPuntos(0);
-		
 		turno = true;
 		juegoFinalizado = false;
 		/*jugador.barajar();
@@ -55,13 +50,21 @@ public class BarBestial {
 			
 		}
 	}
+	public void echarCarta(CartaAnimal pCarta) {
+		if(!jugador.echarCarta(pCarta)) {
+			if(finalizarPartida()) {
+				juegoFinalizado=true;
+			}
+		}
+		
+	}
 	//aqui hay dudas
 	
 	private boolean finalizarPartida() {
 		if(!jugador.comprobarCartas()) {
 			if(!ordenador.comprobarCartas()) {
 				if(jugador.getPuntos()>ordenador.getPuntos()) {
-					System.out.println("el jugador"+jugador.getNombre());	
+					System.out.println("el jugador"+jugador.getNombre()+"ha ganado");	
 				}else System.out.println("el ordenador ha ganado");
 				return true;
 			}

@@ -28,7 +28,6 @@ public class Usuario {
 		ColaEntrada.getColaEntrada().echarCarta(pCarta);
 		mano.borrarCarta(pCarta);
 		return comprobarCartas();
-		
 	}
 	
 	public void cogerCarta(){
