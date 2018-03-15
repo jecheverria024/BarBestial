@@ -2,6 +2,7 @@ package packModelo.Usuario;
 
 import java.util.Collections;
 
+import packModelo.BarBestial;
 import packModelo.ColaEntrada;
 import packModelo.EnumColor;
 import packModelo.Animal.Animal;
@@ -24,11 +25,11 @@ public class Usuario {
 		mazo=inicializarMazo(pColor);
 	}
 	
-	public boolean echarCarta(int pi){
-		CartaAnimal pCarta=mano.getCarta(pi);
+	public void echarCarta(int pi){
+	
+		CartaAnimal pCarta=mano.eliminar(pi);
 		ColaEntrada.getColaEntrada().echarCarta(pCarta);
-		mano.borrarCarta(pCarta);
-		return comprobarCartas();
+		
 	}
 	
 	public void cogerCarta(){
@@ -36,11 +37,12 @@ public class Usuario {
 		mazo.borrarCarta(ca);
 		mano.add(ca);
 	}
-	public boolean comprobarCartas() {
+	public void comprobarCartas() {
 		if(mano.longitud()==0) {
 			//devuelve false si ya no le quedan cartas para finalizar la partida
-			return false;
-		}else return true;
+			BarBestial.getBarBestial().finalizarPartida();
+			//return false;
+		}//else return true;
 	}
 	public int getPuntos() {
 		return  puntos;

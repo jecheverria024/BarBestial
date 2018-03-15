@@ -34,4 +34,12 @@ public class ListaCartas {
 	public void barajar() {
 		Collections.shuffle(lista);
 	}
+	public CartaAnimal eliminar(int i) {
+		CartaAnimal c=getCarta(i);
+		borrarCarta(c);
+		return c;
+		
+	}
+	
 }
+
