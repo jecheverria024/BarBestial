@@ -12,7 +12,10 @@ import packModelo.BarBestial;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 
@@ -66,23 +69,18 @@ public class VentanaInicioJuego extends JFrame {
 	private JButton getBtnJugar() {
 		if (btnJugar == null) {
 			btnJugar = new JButton("Jugar");
-			btnJugar.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent arg0) {
-					BarBestial b= BarBestial.getBarBestial();
-					b.iniciarPartida();
-				}
-			});
+			btnJugar.addActionListener(new Controlador()) ;
+			btnJugar.setActionCommand("Jugar");
+
 		}
 		return btnJugar;
 	}
 	private JButton getBtnSalir() {
 		if (btnSalir == null) {
 			btnSalir = new JButton("Salir");
-			btnSalir.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					new ConfirmacionSalir().setVisible(true); 
-				}
-			});
+			btnSalir.addActionListener(new Controlador());
+			btnSalir.setActionCommand("Salir");	
+			
 		}
 		return btnSalir;
 	}
@@ -92,5 +90,32 @@ public class VentanaInicioJuego extends JFrame {
 			lblBarbestial.setFont(new Font("Tahoma", Font.PLAIN, 37));
 		}
 		return lblBarbestial;
+	}
+	
+	private class Controlador extends WindowAdapter implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			String action= e.getActionCommand();
+			if(action.equals("Jugar")){
+				
+			}else if(action.equals("Salir")){
+				cerrar();
+			}
+			
+		}
+		public void cerrar(){
+			Object[] options={"ACEPTAR", "CANCELAR"};
+			int eleccion=JOptionPane.showOptionDialog(rootPane, "Quieres cerrar la aplicacion?", "Confirmar Cierre", JOptionPane.YES_NO_OPTION, 
+					JOptionPane.QUESTION_MESSAGE,null, options, "Aceptar");
+			if(eleccion==JOptionPane.YES_OPTION){
+				System.exit(0);
+			}else{
+				
+			}
+			
+					
+		}
+		
 	}
 }
