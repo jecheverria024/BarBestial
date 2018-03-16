@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 
+import packModelo.ColaEntrada;
+
 public class ListaCartas {
 	private ArrayList<CartaAnimal> lista;
 	
@@ -25,13 +27,28 @@ public class ListaCartas {
 	public CartaAnimal conseguirCarta(){
 		return lista.get(0);
 	}
-	public CartaAnimal ultimaCarta(){
-		return lista.get(lista.size()-1);
+	public void ultimaCarta(){
+		CartaAnimal c= lista.get(lista.size()-1);
+		EsLoQueHay es= EsLoQueHay.getEsLoQueHay();
+		es.addLast(c);
+		this.borrarCarta(c);
+		
+		
 	}
 	public CartaAnimal getCarta(int i){
 		return lista.get(i);
 	}
 	public void barajar() {
 		Collections.shuffle(lista);
+	}
+	public void DosPrimeras(){
+		
+		PuertaDelCielo puerta= PuertaDelCielo.getPuertaDelCielo();
+		for(int i=0;i<2;i++){
+			CartaAnimal c=this.conseguirCarta();
+			puerta.add(c);
+			this.borrarCarta(c);
+		}
+	
 	}
 }

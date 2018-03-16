@@ -21,18 +21,15 @@ public class ColaEntrada {
 	public void revisarCola(){
 		boolean lleno=comprobarColaCompleta();
 		if(lleno){
-			for(int i=0;i<2;i++){
-				CartaAnimal c=cartas.conseguirCarta();
-				PuertaDelCielo.getPuertaDelCielo().add(c);
-				cartas.borrarCarta(c);
-			}
-			CartaAnimal c1=cartas.ultimaCarta();
-			EsLoQueHay.getEsLoQueHay().addLast(c1);
-			cartas.borrarCarta(c1);
+	
+			cartas.DosPrimeras();
+			cartas.ultimaCarta();
+
 		}
 	}
 	
 	public void add(CartaAnimal c) {
+		
 		this.cartas.add(c);
 	}
 	private boolean comprobarColaCompleta(){

@@ -17,14 +17,17 @@ public class BarBestial {
 
 	
 	private BarBestial(){
-		mBarBestial= new BarBestial();
+		
 	}
 	
-	public static BarBestial getPuertaDelCielo(){
+	public static BarBestial getBarBestial(){
 		if(mBarBestial==null){
 			mBarBestial= new BarBestial();
 		}
 		return mBarBestial;
+	}
+	public void iniciarPartida(){
+		
 	}
 	
 	private void inicializar() {
