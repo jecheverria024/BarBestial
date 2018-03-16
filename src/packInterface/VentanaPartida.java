@@ -6,9 +6,13 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import packModelo.Usuario.Jugador;
+
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 
@@ -16,10 +20,10 @@ public class VentanaPartida extends JFrame {
 
 	private JPanel contentPane;
 	private JPanel panel;
-	private JButton button;
-	private JButton button_1;
-	private JButton button_2;
-	private JButton button_3;
+	private JButton carta1;
+	private JButton carta2;
+	private JButton carta3;
+	private JButton carta4;
 	private JPanel panel_1;
 	private JButton btnBaraja;
 	private JPanel panel_2;
@@ -68,30 +72,38 @@ public class VentanaPartida extends JFrame {
 		return panel;
 	}
 	private JButton getButton() {
-		if (button == null) {
-			button = new JButton("1");
+		if (carta1 == null) {
+			carta1 = new JButton("1");
+			carta1.addActionListener(new ControladorListaDeCartas());
+			carta1.setActionCommand("1");
 			
 			
 		}
-		return button;
+		return carta1;
 	}
 	private JButton getButton_1() {
-		if (button_1 == null) {
-			button_1 = new JButton("2");
+		if (carta2 == null) {
+			carta2 = new JButton("2");
+			carta2.addActionListener(new ControladorListaDeCartas());
+			carta2.setActionCommand("2");
 		}
-		return button_1;
+		return carta2;
 	}
 	private JButton getButton_2() {
-		if (button_2 == null) {
-			button_2 = new JButton("3");
+		if (carta3 == null) {
+			carta3 = new JButton("3");
+			carta3.addActionListener(new ControladorListaDeCartas());
+			carta3.setActionCommand("3");
 		}
-		return button_2;
+		return carta3;
 	}
 	private JButton getButton_3() {
-		if (button_3 == null) {
-			button_3 = new JButton("4");
+		if (carta4 == null) {
+			carta4 = new JButton("4");
+			carta4.addActionListener(new ControladorListaDeCartas());
+			carta4.setActionCommand("4");
 		}
-		return button_3;
+		return carta4;
 	}
 	private JPanel getPanel_1() {
 		if (panel_1 == null) {
@@ -103,6 +115,8 @@ public class VentanaPartida extends JFrame {
 	private JButton getBtnBaraja() {
 		if (btnBaraja == null) {
 			btnBaraja = new JButton("Baraja");
+			btnBaraja.addActionListener(new ControladorListaDeCartas());
+			btnBaraja.setActionCommand("Baraja");
 		}
 		return btnBaraja;
 	}
@@ -111,5 +125,21 @@ public class VentanaPartida extends JFrame {
 			panel_2 = new JPanel();
 		}
 		return panel_2;
+	}
+	
+	private class ControladorListaDeCartas extends WindowAdapter implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			String action=e.getActionCommand();
+			if(action.equals("Baraja")){//falta meter turnos y comprobar si el jugador tiene algun hueco libre en la mano
+				Jugador.getJugador().cogerCarta();
+			}else{
+				Jugador.getJugador().echarCarta(Integer.parseInt(action)-1);
+				
+			}
+			
+		}
+		
 	}
 }

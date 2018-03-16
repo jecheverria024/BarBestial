@@ -35,6 +35,9 @@ public class ListaCartas {
 		
 		
 	}
+	public CartaAnimal cogerCartaDelMazo(){
+		return lista.get(lista.size()-1);
+	}
 	public CartaAnimal getCarta(int i){
 		return lista.get(i);
 	}

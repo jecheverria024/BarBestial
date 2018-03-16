@@ -33,7 +33,7 @@ public class Usuario {
 	}
 	
 	public void cogerCarta(){
-		CartaAnimal ca=mazo.ultimaCarta();
+		CartaAnimal ca=mazo.cogerCartaDelMazo();
 		mazo.borrarCarta(ca);
 		mano.add(ca);
 	}
