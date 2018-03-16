@@ -8,7 +8,7 @@ public class Main {
 		VentanaInicioJuego frame= new VentanaInicioJuego();
 		frame.setVisible(true);
 		BarBestial.getBarBestial().iniciarPartida();
-
+		
 	}
 
 }

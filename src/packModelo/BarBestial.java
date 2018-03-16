@@ -27,7 +27,7 @@ public class BarBestial {
 		return mBarBestial;
 	}
 	public void iniciarPartida(){
-		
+		this.inicializar();
 	}
 	
 	private void inicializar() {

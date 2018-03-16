@@ -98,7 +98,9 @@ public class VentanaInicioJuego extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			String action= e.getActionCommand();
 			if(action.equals("Jugar")){
-				
+				VentanaPartida frame2= new VentanaPartida();
+				frame2.setVisible(true);
+				dispose();
 			}else if(action.equals("Salir")){
 				cerrar();
 			}
