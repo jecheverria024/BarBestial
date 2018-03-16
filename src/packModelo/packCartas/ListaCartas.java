@@ -41,6 +41,7 @@ public class ListaCartas {
 	public void barajar() {
 		Collections.shuffle(lista);
 	}
+<<<<<<< HEAD
 	public void DosPrimeras(){
 		
 		PuertaDelCielo puerta= PuertaDelCielo.getPuertaDelCielo();
@@ -51,4 +52,14 @@ public class ListaCartas {
 		}
 	
 	}
+=======
+	public CartaAnimal eliminar(int i) {
+		CartaAnimal c=getCarta(i);
+		borrarCarta(c);
+		return c;
+		
+	}
+	
+>>>>>>> 8eb2512a42b286cf4e3452923f5a9b984129477c
 }
+

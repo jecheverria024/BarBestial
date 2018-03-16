@@ -36,6 +36,9 @@ public class BarBestial {
 		ordenador = Ordenador.getOrdenador();
 		turno = true;
 		juegoFinalizado = false;
+		PuertaDelCielo.getPuertaDelCielo();
+		ColaEntrada.getColaEntrada();
+		
 		/*jugador.barajar();
 		ordenador.barajar();
 		for (int i=0 ; i<4;i++) {
@@ -47,30 +50,25 @@ public class BarBestial {
 	public void setTurno(boolean pTurno) {
 		turno = pTurno;
 		if (!turno) {
-			if(!ordenador.comprobarCartas()) {
+			
 				ordenador.jugar();
-			}else finalizarPartida();
 			
 		}
 	}
-	public void echarCarta(int pi) {
+	/*public void echarCarta(int pi) {
 		if(!jugador.echarCarta(pi)) {
 			if(finalizarPartida()) {
 				juegoFinalizado=true;
 			}
 		}
 		
-	}
+	}*/
 	//aqui hay dudas
 	
-	private boolean finalizarPartida() {
-		if(!jugador.comprobarCartas()) {
-			if(!ordenador.comprobarCartas()) {
+	public void finalizarPartida() {
 				if(jugador.getPuntos()>ordenador.getPuntos()) {
 					System.out.println("el jugador"+jugador.getNombre()+"ha ganado");	
 				}else System.out.println("el ordenador ha ganado");
-				return true;
-			}
-		}return false;
+			
 	}
 }
