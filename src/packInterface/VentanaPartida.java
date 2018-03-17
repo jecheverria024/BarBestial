@@ -7,16 +7,19 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import packModelo.BarBestial;
 import packModelo.Usuario.Jugador;
 
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
+import java.util.Observable;
+import java.util.Observer;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 
-public class VentanaPartida extends JFrame {
+public class VentanaPartida extends JFrame implements Observer {
 
 	private JPanel contentPane;
 	private JPanel panel;
@@ -58,6 +61,9 @@ public class VentanaPartida extends JFrame {
 		contentPane.add(getPanel_1(), BorderLayout.WEST);
 		contentPane.add(getBtnBaraja(), BorderLayout.EAST);
 		contentPane.add(getPanel_2(), BorderLayout.CENTER);
+		BarBestial.getBarBestial().iniciarPartida();
+		//Jugador.getJugador().addObserver(this);
+
 	}
 
 	private JPanel getPanel() {
@@ -132,6 +138,7 @@ public class VentanaPartida extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			String action=e.getActionCommand();
+			Jugador.getJugador().imprimirmano();
 			if(action.equals("Baraja")){//falta meter turnos y comprobar si el jugador tiene algun hueco libre en la mano
 				Jugador.getJugador().cogerCarta();
 			}else{
@@ -140,6 +147,12 @@ public class VentanaPartida extends JFrame {
 			}
 			
 		}
+		
+	}
+
+	@Override
+	public void update(Observable arg0, Object arg1) {
+		// TODO Auto-generated method stub
 		
 	}
 }

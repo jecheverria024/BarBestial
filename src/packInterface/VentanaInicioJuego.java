@@ -55,6 +55,7 @@ public class VentanaInicioJuego extends JFrame {
 		setContentPane(contentPane);
 		contentPane.add(getPanel(), BorderLayout.SOUTH);
 		contentPane.add(getLblBarbestial(), BorderLayout.NORTH);
+		
 	}
 
 	private JPanel getPanel() {

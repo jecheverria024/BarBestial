@@ -64,7 +64,15 @@ public class Usuario {
 	
 	public void barajar() {
 		mazo.barajar();
+		//imprimirmazo();
 	}
-	
+	public void imprimirmazo() {
+		
+		mazo.imprimirlista();
+	}
+	public void imprimirmano() {
+		
+		mano.imprimirlista();
+	}
 	
 }

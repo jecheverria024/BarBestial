@@ -19,7 +19,9 @@ public class CartaAnimal extends CartaGeneral {
 		animal=a;
 	}
 	
-	
+	public int getFuerza() {
+		return fuerza;
+	}
 	
 
 }

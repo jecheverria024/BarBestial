@@ -31,14 +31,17 @@ public class BarBestial {
 	}
 	
 	private void inicializar() {
+		ColaEntrada.getColaEntrada();
+		PuertaDelCielo.getPuertaDelCielo();
+		
 		jugador = Jugador.getJugador();
 		jugador.asignarNombre("jug");	
 		ordenador = Ordenador.getOrdenador();
 		turno = true;
 		juegoFinalizado = false;
-		PuertaDelCielo.getPuertaDelCielo();
-		ColaEntrada.getColaEntrada();
-		
+		jugador.barajar();
+		ordenador.barajar();
+		imprimirmazo();
 		/*jugador.barajar();
 		ordenador.barajar();
 		for (int i=0 ; i<4;i++) {
@@ -66,9 +69,16 @@ public class BarBestial {
 	//aqui hay dudas
 	
 	public void finalizarPartida() {
-				if(jugador.getPuntos()>ordenador.getPuntos()) {
-					System.out.println("el jugador"+jugador.getNombre()+"ha ganado");	
-				}else System.out.println("el ordenador ha ganado");
-			
+		if(jugador.getPuntos()>ordenador.getPuntos()) {
+			System.out.println("el jugador"+jugador.getNombre()+"ha ganado");	
+		}else System.out.println("el ordenador ha ganado");
+		this.juegoFinalizado=true;
+	
+	}
+	
+	private void imprimirmazo() {
+		jugador.imprimirmazo();
+		System.out.println("ordenador");
+		ordenador.imprimirmazo();
 	}
 }
