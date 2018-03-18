@@ -1,15 +1,20 @@
 package packModelo;
 
+import packInterface.VentanaPrincipal;
 import packModelo.packCartas.CartaAnimal;
 import packModelo.packCartas.EsLoQueHay;
 import packModelo.packCartas.ListaCartas;
 import packModelo.packCartas.PuertaDelCielo;
+import packObservable.ObservableAbstracto;
 
-public class ColaEntrada {
+public class ColaEntrada extends ObservableAbstracto {
 	private ListaCartas cartas;
 	private static ColaEntrada mColaEntrada;
 	
 	private ColaEntrada(){
+		
+		super();
+		VentanaPrincipal v=new VentanaPrincipal();
 		cartas=new ListaCartas();
 	}
 	public static ColaEntrada getColaEntrada(){
@@ -27,10 +32,13 @@ public class ColaEntrada {
 
 		}
 	}
-	
+	public int le() {
+		return this.cartas.longitud();
+	}
 	public void add(CartaAnimal c) {
 		
 		this.cartas.add(c);
+		
 	}
 	private boolean comprobarColaCompleta(){
 		boolean lleno=false;
@@ -41,7 +49,8 @@ public class ColaEntrada {
 	}
 	
 	public void echarCarta(CartaAnimal pCarta) {
+		System.out.println("addddd");
 		cartas.add(pCarta);
+		this.notificar();
 	}
-	
 }

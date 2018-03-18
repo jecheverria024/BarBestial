@@ -7,6 +7,7 @@ import packModelo.ColaEntrada;
 import packModelo.EnumColor;
 import packModelo.Animal.Animal;
 import packModelo.Animal.AnimalFactory;
+import packModelo.Animal.Leon;
 import packModelo.packCartas.CartaAnimal;
 import packModelo.packCartas.ListaCartas;
 
@@ -22,6 +23,7 @@ public class Usuario {
 		puntos=pPuntos;
 		color=pColor;
 		mano=new ListaCartas();
+		mano.add((new CartaAnimal(" ",3,EnumColor.ROJO, new Leon())));
 		mazo=inicializarMazo(pColor);
 	}
 	

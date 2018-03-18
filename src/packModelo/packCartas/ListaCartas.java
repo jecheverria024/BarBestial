@@ -4,12 +4,15 @@ import java.util.Collections;
 import java.util.Iterator;
 
 import packModelo.ColaEntrada;
+import packModelo.EnumColor;
+import packModelo.Animal.Leon;
 
 public class ListaCartas {
 	private ArrayList<CartaAnimal> lista;
 	
 	public ListaCartas(){
 	lista=new ArrayList<CartaAnimal>();
+	
 	}
 	public int longitud(){
 		return lista.size();

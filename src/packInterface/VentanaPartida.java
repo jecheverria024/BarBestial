@@ -4,22 +4,29 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+
 import packModelo.BarBestial;
+import packModelo.ColaEntrada;
 import packModelo.Usuario.Jugador;
+import packObservable.IObserver;
 
 import java.awt.FlowLayout;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.util.Observable;
 import java.util.Observer;
 import java.awt.event.ActionEvent;
-import javax.swing.SwingConstants;
+import java.awt.CardLayout;
+import java.awt.GridLayout;
 
-public class VentanaPartida extends JFrame implements Observer {
+public class VentanaPartida extends JFrame implements IObserver  {
 
 	private JPanel contentPane;
 	private JPanel panel;
@@ -30,7 +37,8 @@ public class VentanaPartida extends JFrame implements Observer {
 	private JPanel panel_1;
 	private JButton btnBaraja;
 	private JPanel panel_2;
-
+	private JLabel[] cola;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -61,11 +69,40 @@ public class VentanaPartida extends JFrame implements Observer {
 		contentPane.add(getPanel_1(), BorderLayout.WEST);
 		contentPane.add(getBtnBaraja(), BorderLayout.EAST);
 		contentPane.add(getPanel_2(), BorderLayout.CENTER);
+		System.out.println("qwerty");
+		ColaEntrada.getColaEntrada().registrarObservador(this);
+		
 		BarBestial.getBarBestial().iniciarPartida();
+		
+		this.getCola();
+	
+		
 		//Jugador.getJugador().addObserver(this);
 
 	}
 
+	/*Se encarga de inicializar la cola, aun falta poner como colocar las fotos segun fuerza y eso */
+	private void getCola() {
+		cola=new JLabel[5];
+		cola[0]=new JLabel();
+		if(ColaEntrada.getColaEntrada().le()!=0) {
+			
+		ImageIcon imagen = new ImageIcon(getClass().getResource("/packImagen/leon.jpg"));
+		
+		cola[0]=new JLabel(imagen);
+		}
+		cola[1]=new JLabel();
+		cola[2]=new JLabel();
+		cola[3]=new JLabel();
+		cola[4]=new JLabel();
+		
+		panel_2.add(cola[0]);
+		panel_2.add(cola[1]);
+		panel_2.add(cola[2]);
+		panel_2.add(cola[3]);
+		panel_2.add(cola[4]);
+	}
+	
 	private JPanel getPanel() {
 		if (panel == null) {
 			panel = new JPanel();
@@ -129,6 +166,7 @@ public class VentanaPartida extends JFrame implements Observer {
 	private JPanel getPanel_2() {
 		if (panel_2 == null) {
 			panel_2 = new JPanel();
+			panel_2.setLayout(new GridLayout(1, 5, 0, 0));
 		}
 		return panel_2;
 	}
@@ -151,8 +189,11 @@ public class VentanaPartida extends JFrame implements Observer {
 	}
 
 	@Override
-	public void update(Observable arg0, Object arg1) {
+	public void update() {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Update ventana partida");	
+		this.getCola();
+		this.panel_2.updateUI();
+		this.panel_2.repaint();
 	}
 }
