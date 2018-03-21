@@ -26,15 +26,12 @@ public class ColaEntrada extends ObservableAbstracto {
 	public void revisarCola(){
 		boolean lleno=comprobarColaCompleta();
 		if(lleno){
-	
 			cartas.DosPrimeras();
 			cartas.ultimaCarta();
 
 		}
 	}
-	public int le() {
-		return this.cartas.longitud();
-	}
+
 	public void add(CartaAnimal c) {
 		
 		this.cartas.add(c);
@@ -51,6 +48,7 @@ public class ColaEntrada extends ObservableAbstracto {
 	public void echarCarta(CartaAnimal pCarta) {
 		System.out.println("addddd");
 		cartas.add(pCarta);
-		this.notificar();
+		this.revisarCola();
+		this.notificar(this);
 	}
 }

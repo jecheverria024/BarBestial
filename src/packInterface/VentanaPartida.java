@@ -12,7 +12,9 @@ import javax.swing.border.EmptyBorder;
 import packModelo.BarBestial;
 import packModelo.ColaEntrada;
 import packModelo.Usuario.Jugador;
+import packModelo.Usuario.Usuario;
 import packObservable.IObserver;
+import packObservable.ObservableAbstracto;
 
 import java.awt.FlowLayout;
 
@@ -26,17 +28,17 @@ import java.awt.event.ActionEvent;
 import java.awt.CardLayout;
 import java.awt.GridLayout;
 
-public class VentanaPartida extends JFrame implements IObserver  {
+public class VentanaPartida extends JFrame implements IObserver{
 
 	private JPanel contentPane;
-	private JPanel panel;
+	private JPanel manoJugador;
 	private JButton carta1;
 	private JButton carta2;
 	private JButton carta3;
 	private JButton carta4;
 	private JPanel panel_1;
 	private JButton btnBaraja;
-	private JPanel panel_2;
+	private JPanel colaEntrada;
 	private JLabel[] cola;
 	
 	/**
@@ -65,16 +67,16 @@ public class VentanaPartida extends JFrame implements IObserver  {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		contentPane.add(getPanel(), BorderLayout.SOUTH);
+		contentPane.add(getManoJugador(), BorderLayout.SOUTH);
 		contentPane.add(getPanel_1(), BorderLayout.WEST);
 		contentPane.add(getBtnBaraja(), BorderLayout.EAST);
-		contentPane.add(getPanel_2(), BorderLayout.CENTER);
+		contentPane.add(getColaEntrada(), BorderLayout.CENTER);
 		System.out.println("qwerty");
 		ColaEntrada.getColaEntrada().registrarObservador(this);
 		
 		BarBestial.getBarBestial().iniciarPartida();
 		
-		this.getCola();
+		this.actualizarCola();
 	
 		
 		//Jugador.getJugador().addObserver(this);
@@ -82,37 +84,42 @@ public class VentanaPartida extends JFrame implements IObserver  {
 	}
 
 	/*Se encarga de inicializar la cola, aun falta poner como colocar las fotos segun fuerza y eso */
-	private void getCola() {
+	private void actualizarCola() {
 		cola=new JLabel[5];
 		cola[0]=new JLabel();
-		if(ColaEntrada.getColaEntrada().le()!=0) {
-			
-		ImageIcon imagen = new ImageIcon(getClass().getResource("/packImagen/leon.jpg"));
 		
-		cola[0]=new JLabel(imagen);
-		}
+				
+			ImageIcon imagen = new ImageIcon(getClass().getResource("/packImagen/leon.jpg"));
+			
+			cola[0]=new JLabel(imagen);
+		
 		cola[1]=new JLabel();
 		cola[2]=new JLabel();
 		cola[3]=new JLabel();
 		cola[4]=new JLabel();
 		
-		panel_2.add(cola[0]);
-		panel_2.add(cola[1]);
-		panel_2.add(cola[2]);
-		panel_2.add(cola[3]);
-		panel_2.add(cola[4]);
+		colaEntrada.add(cola[0]);
+		colaEntrada.add(cola[1]);
+		colaEntrada.add(cola[2]);
+		colaEntrada.add(cola[3]);
+		colaEntrada.add(cola[4]);
 	}
 	
-	private JPanel getPanel() {
-		if (panel == null) {
-			panel = new JPanel();
-			panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 20));
-			panel.add(getButton());
-			panel.add(getButton_1());
-			panel.add(getButton_2());
-			panel.add(getButton_3());
+	private void actualizarMano() {
+		
+		
+	}
+	
+	private JPanel getManoJugador() {
+		if (manoJugador == null) {
+			manoJugador = new JPanel();
+			manoJugador.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 20));
+			manoJugador.add(getButton());
+			manoJugador.add(getButton_1());
+			manoJugador.add(getButton_2());
+			manoJugador.add(getButton_3());
 		}
-		return panel;
+		return manoJugador;
 	}
 	private JButton getButton() {
 		if (carta1 == null) {
@@ -163,12 +170,12 @@ public class VentanaPartida extends JFrame implements IObserver  {
 		}
 		return btnBaraja;
 	}
-	private JPanel getPanel_2() {
-		if (panel_2 == null) {
-			panel_2 = new JPanel();
-			panel_2.setLayout(new GridLayout(1, 5, 0, 0));
+	private JPanel getColaEntrada() {
+		if (colaEntrada == null) {
+			colaEntrada = new JPanel();
+			colaEntrada.setLayout(new GridLayout(1, 5, 0, 0));
 		}
-		return panel_2;
+		return colaEntrada;
 	}
 	
 	private class ControladorListaDeCartas extends WindowAdapter implements ActionListener{
@@ -189,11 +196,18 @@ public class VentanaPartida extends JFrame implements IObserver  {
 	}
 
 	@Override
-	public void update() {
-		// TODO Auto-generated method stub
-		System.out.println("Update ventana partida");	
-		this.getCola();
-		this.panel_2.updateUI();
-		this.panel_2.repaint();
-	}
+	public void update(ObservableAbstracto pObservable) {
+		if (pObservable instanceof ColaEntrada){
+			System.out.println("Update ventana partida");	
+			this.actualizarCola();
+			this.colaEntrada.updateUI();
+			this.colaEntrada.repaint();}
+		else if(pObservable instanceof Jugador) {
+			System.out.println("Update mano");	
+			this.actualizarMano();
+			this.manoJugador.updateUI();
+			this.manoJugador.repaint();}
+		}
 }
+
+
