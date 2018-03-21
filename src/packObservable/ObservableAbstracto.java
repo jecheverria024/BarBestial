@@ -10,7 +10,6 @@ public abstract class ObservableAbstracto {
 		observadores=new ArrayList<IObserver>();
 	}
 	public void registrarObservador(IObserver pObserver) {
-		System.out.println("registarrarr");
 		if(!observadores.contains(pObserver)) {
 			observadores.add(pObserver);
 		}
@@ -21,10 +20,7 @@ public abstract class ObservableAbstracto {
 		}
 	}
 	public void notificar(ObservableAbstracto pOA) {
-		IObserver observador;
 		Iterator<IObserver> it=observadores.iterator();
-		System.out.println("notificar");
-		System.out.println(this.observadores.size());
 		while(it.hasNext()) {		
 			it.next().update(pOA);
 		}

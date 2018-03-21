@@ -66,11 +66,21 @@ public class ListaCartas {
 		
 	}
 	public void imprimirlista() {
+		System.out.println(lista.size());
 		for(int i =0;i<lista.size();i++) {
+			
 			System.out.println(lista.get(i).getFuerza());
 		}
 	}
-	
-
+	public int getFuerzaPosicion(int pos) {
+		int fuerza=-1;
+		try {
+			fuerza= this.getCarta(pos).getFuerza();
+		}
+		catch(Exception e) {
+			System.out.println("No hay carta");
+		}
+		return fuerza;
+	}
 }
 

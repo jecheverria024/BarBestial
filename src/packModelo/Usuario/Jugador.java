@@ -12,6 +12,7 @@ public class Jugador extends Usuario {
 		
 	}
 	
+	
 	public static Jugador getJugador(){
 		if(mJugador==null){
 			mJugador= new Jugador(EnumColor.AZUL,0);

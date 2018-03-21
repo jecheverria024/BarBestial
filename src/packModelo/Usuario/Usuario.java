@@ -30,10 +30,14 @@ public class Usuario extends ObservableAbstracto {
 	
 		CartaAnimal pCarta=mano.eliminar(pi);
 		ColaEntrada.getColaEntrada().echarCarta(pCarta);
-		
-	}
+		if(this.mazo.longitud()!=0) {
+		this.cogerCarta();}
+		System.out.println("Notificar usuario");
+		this.notificar(this);
+		}
 	
 	public void cogerCarta(){
+		
 		CartaAnimal ca=mazo.cogerCartaDelMazo();
 		mazo.borrarCarta(ca);
 		mano.add(ca);
@@ -75,5 +79,7 @@ public class Usuario extends ObservableAbstracto {
 		
 		mano.imprimirlista();
 	}
-	
+	public ListaCartas getListaManos() {
+		return this.mano;
+	}
 }
