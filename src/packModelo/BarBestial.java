@@ -3,6 +3,7 @@ package packModelo;
 import packModelo.Usuario.Jugador;
 import packModelo.Usuario.Ordenador;
 import packModelo.packCartas.CartaAnimal;
+import packModelo.packCartas.EsLoQueHay;
 //import packModelo.packBarcos.BarcoNoEncException;
 import packModelo.packCartas.ListaCartas;
 import packModelo.packCartas.PuertaDelCielo;
@@ -79,6 +80,8 @@ public class BarBestial {
 			System.out.println("el ordenador ha ganado");
 		this.juegoFinalizado = true;*/
 		System.out.println("PARTIDA FINALIZADA");
+		EsLoQueHay.getEsLoQueHay().imprimir();
+		PuertaDelCielo.getPuertaDelCielo().imprimir();
 		
 	}
 

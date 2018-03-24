@@ -21,4 +21,9 @@ public class EsLoQueHay {
 	public ListaCartas getListCartas(){
 		return cartas;
 	}
+	public void imprimir() {
+		System.out.println("cartas en es lo que hay ");
+		cartas.imprimirlista();
+		
+	}
 }
