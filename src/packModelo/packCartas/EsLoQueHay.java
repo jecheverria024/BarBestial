@@ -24,6 +24,5 @@ public class EsLoQueHay {
 	public void imprimir() {
 		System.out.println("cartas en es lo que hay ");
 		cartas.imprimirlista();
-		
 	}
 }
