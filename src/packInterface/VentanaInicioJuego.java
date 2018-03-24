@@ -55,7 +55,7 @@ public class VentanaInicioJuego extends JFrame {
 		setContentPane(contentPane);
 		contentPane.add(getPanel(), BorderLayout.SOUTH);
 		contentPane.add(getLblBarbestial(), BorderLayout.NORTH);
-		
+
 	}
 
 	private JPanel getPanel() {
@@ -67,24 +67,27 @@ public class VentanaInicioJuego extends JFrame {
 		}
 		return panel;
 	}
+
 	private JButton getBtnJugar() {
 		if (btnJugar == null) {
 			btnJugar = new JButton("Jugar");
-			btnJugar.addActionListener(new Controlador()) ;
+			btnJugar.addActionListener(new Controlador());
 			btnJugar.setActionCommand("Jugar");
 
 		}
 		return btnJugar;
 	}
+
 	private JButton getBtnSalir() {
 		if (btnSalir == null) {
 			btnSalir = new JButton("Salir");
 			btnSalir.addActionListener(new Controlador());
-			btnSalir.setActionCommand("Salir");	
-			
+			btnSalir.setActionCommand("Salir");
+
 		}
 		return btnSalir;
 	}
+
 	private JLabel getLblBarbestial() {
 		if (lblBarbestial == null) {
 			lblBarbestial = new JLabel("BarBestial");
@@ -92,33 +95,33 @@ public class VentanaInicioJuego extends JFrame {
 		}
 		return lblBarbestial;
 	}
-	
-	private class Controlador extends WindowAdapter implements ActionListener{
+
+	private class Controlador extends WindowAdapter implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			String action= e.getActionCommand();
-			if(action.equals("Jugar")){
-				VentanaPartida frame2= new VentanaPartida();
+			String action = e.getActionCommand();
+			if (action.equals("Jugar")) {
+				VentanaPartida frame2 = new VentanaPartida();
 				frame2.setVisible(true);
 				dispose();
-			}else if(action.equals("Salir")){
+			} else if (action.equals("Salir")) {
 				cerrar();
 			}
-			
+
 		}
-		public void cerrar(){
-			Object[] options={"ACEPTAR", "CANCELAR"};
-			int eleccion=JOptionPane.showOptionDialog(rootPane, "Quieres cerrar la aplicacion?", "Confirmar Cierre", JOptionPane.YES_NO_OPTION, 
-					JOptionPane.QUESTION_MESSAGE,null, options, "Aceptar");
-			if(eleccion==JOptionPane.YES_OPTION){
+
+		public void cerrar() {
+			Object[] options = { "ACEPTAR", "CANCELAR" };
+			int eleccion = JOptionPane.showOptionDialog(rootPane, "Quieres cerrar la aplicacion?", "Confirmar Cierre",
+					JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, "Aceptar");
+			if (eleccion == JOptionPane.YES_OPTION) {
 				System.exit(0);
-			}else{
-				
+			} else {
+
 			}
-			
-					
+
 		}
-		
+
 	}
 }
