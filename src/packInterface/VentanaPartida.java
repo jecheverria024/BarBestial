@@ -35,7 +35,7 @@ public class VentanaPartida extends JFrame implements IObserver{
 
 	private JPanel contentPane;
 	private JPanel panel_1;
-	private JButton btnBaraja;
+	private JLabel btnBaraja;
 	private JPanel colaEntrada;
 	private JLabel[] cola;
 	private JLabel[] mano;
@@ -71,14 +71,12 @@ public class VentanaPartida extends JFrame implements IObserver{
 		contentPane.add(getBtnBaraja(), BorderLayout.EAST);
 		contentPane.add(getColaEntrada(), BorderLayout.CENTER);
 		contentPane.add(getManoJugador(), BorderLayout.SOUTH);
-		ColaEntrada.getColaEntrada().registrarObservador(this);
-		Jugador.getJugador().registrarObservador(this);
+		ColaEntrada.getColaEntrada().registrarObservador(this);		
 		BarBestial.getBarBestial().iniciarPartida();
-		
+		BarBestial.getBarBestial().getJugador().registrarObservador(this);
 		this.actualizarCola();
 		this.actualizarMano();
-		
-		//Jugador.getJugador().addObserver(this);
+
 
 	}
 
@@ -197,8 +195,8 @@ public class VentanaPartida extends JFrame implements IObserver{
 			}
 		});
 		int fuerza;
-		for(int i=0; i<Jugador.getJugador().getListaManos().longitud();i++) {
-			fuerza=Jugador.getJugador().getListaManos().getFuerzaPosicion(i);
+		for(int i=0; i<4;i++) {
+			fuerza=BarBestial.getBarBestial().getJugador().getListaManos().getFuerzaPosicion(i);
 			mano[i].setIcon(this.getImagen(fuerza));
 			mano[i].setBackground(Color.BLUE);
 			mano[i].setOpaque(true);
@@ -218,11 +216,10 @@ public class VentanaPartida extends JFrame implements IObserver{
 		}
 		return panel_1;
 	}
-	private JButton getBtnBaraja() {
+	private JLabel getBtnBaraja() {
 		if (btnBaraja == null) {
-			btnBaraja = new JButton("Baraja");
-			btnBaraja.addActionListener(new ControladorListaDeCartas());
-			btnBaraja.setActionCommand("Baraja");
+			btnBaraja = new JLabel(new ImageIcon(getClass().getResource("/packImagen/mazo.jpg")));
+			
 		}
 		return btnBaraja;
 	}
@@ -239,9 +236,7 @@ public class VentanaPartida extends JFrame implements IObserver{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			String action=e.getActionCommand();
-			Jugador.getJugador().imprimirmano();
 			if(action.equals("Baraja")){//falta meter turnos y comprobar si el jugador tiene algun hueco libre en la mano
-				Jugador.getJugador().cogerCarta();
 			}
 		}
 		
@@ -250,17 +245,14 @@ public class VentanaPartida extends JFrame implements IObserver{
 	@Override
 	public void update(ObservableAbstracto pObservable) {
 		if (pObservable instanceof ColaEntrada){
-			//System.out.println("Update ventana partida");	
 			this.actualizarCola();
 			this.colaEntrada.updateUI();
 			this.colaEntrada.repaint();}
 		else if(pObservable instanceof Usuario) {
-			//System.out.println("Update mano");	
 			this.actualizarMano();
 			this.manoJugador.updateUI();
 			this.manoJugador.repaint();
 			System.out.println("mano jugador");
-			Jugador.getJugador().imprimirmano();
 			}
 		}
 	private JPanel getManoJugador() {

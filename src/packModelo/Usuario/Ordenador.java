@@ -4,21 +4,16 @@ import packModelo.BarBestial;
 import packModelo.EnumColor;
 
 public class Ordenador  extends Usuario{
-	private static Ordenador mOrdenador;
-	private Ordenador(EnumColor pColor, int pPuntos) {
-		super(pColor, pPuntos);
+	public Ordenador(EnumColor pColor) {
+		super(pColor);
 		
-	}
-	public static Ordenador getOrdenador(){
-		if(mOrdenador==null){
-			mOrdenador= new Ordenador(EnumColor.AMARILLO, 0);
-		}
-		return mOrdenador;
 	}
 	
+	
+	//Esto se hará mas complejo en los siguientes sprints, de momento solo echa la carta que esta en primera posicion
 	public void jugar() {
 		
-		echarCarta(1);
+		echarCarta(0);
 		
 	}
 	public void asignarColor(EnumColor pColor){

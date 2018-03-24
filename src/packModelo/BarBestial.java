@@ -12,7 +12,8 @@ public class BarBestial {
 	private static BarBestial mBarBestial;
 	private boolean turno; // true = Usuario, false = Ordenador
 	private boolean juegoFinalizado;
-
+	private Jugador jugador;		
+	private Ordenador ordenador;
 	private BarBestial() {
 
 	}
@@ -29,10 +30,11 @@ public class BarBestial {
 		this.repartirCartas();
 	}
 
-	public void inicializarPartida() {
+	private void inicializarPartida() {
 		ColaEntrada.getColaEntrada();
 		PuertaDelCielo.getPuertaDelCielo();
-		Jugador.getJugador().asignarNombre("jug");
+		this.jugador=new Jugador(EnumColor.AZUL);
+		this.ordenador=new Ordenador(EnumColor.VERDE);
 		turno = true;
 		juegoFinalizado = false;
 		imprimirmazo();
@@ -40,22 +42,22 @@ public class BarBestial {
 
 	
 	public boolean Jugar(int pos) {
-		Jugador.getJugador().echarCarta(pos);
-		if(Ordenador.getOrdenador().tieneCartas()) {
-		Ordenador.getOrdenador().echarCarta(0);}
-		if(!Jugador.getJugador().tieneCartas() && !Ordenador.getOrdenador().tieneCartas()) {
+		jugador.echarCarta(pos);
+		if(ordenador.tieneCartas()) {
+			ordenador.jugar();}
+		if(!jugador.tieneCartas() && !ordenador.tieneCartas()) {
 			this.finalizarPartida();
 			this.juegoFinalizado=true;
 		}
 		return juegoFinalizado;
 	}
 	
-	public void repartirCartas() {
-		Jugador.getJugador().barajar();
-		Ordenador.getOrdenador().barajar();
+	private void repartirCartas() {
+		jugador.barajar();
+		ordenador.barajar();
 		for (int i = 0; i < 4; i++) {
-			Jugador.getJugador().cogerCarta();
-			Ordenador.getOrdenador().cogerCarta();
+			jugador.cogerCarta();
+			ordenador.cogerCarta();
 		}
 	}
 	
@@ -66,7 +68,9 @@ public class BarBestial {
 	 * }
 	 */
 	// aqui hay dudas
-
+	public Jugador getJugador() {
+		return this.jugador;
+	}
 	public void finalizarPartida() {
 		/*
 		if (Jugador.getJugador().getPuntos() > Ordenador.getOrdenador().getPuntos()) {
@@ -79,8 +83,8 @@ public class BarBestial {
 	}
 
 	private void imprimirmazo() {
-		Jugador.getJugador().imprimirmazo();
+		jugador.imprimirmazo();
 		System.out.println("ordenador");
-		Ordenador.getOrdenador().imprimirmazo();
+		ordenador.imprimirmazo();
 	}
 }
