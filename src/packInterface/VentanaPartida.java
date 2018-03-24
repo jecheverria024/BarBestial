@@ -84,14 +84,9 @@ public class VentanaPartida extends JFrame implements IObserver{
 	private void actualizarCola() {
 		cola=new JLabel[5];	
 		cola[0]=new JLabel();
-		
-		
 		cola[1]=new JLabel();
-		
 		cola[2]=new JLabel();
-		
 		cola[3]=new JLabel();
-		
 		cola[4]=new JLabel();
 		
 		for(int i=0; i<5;i++) {
