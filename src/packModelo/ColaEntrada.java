@@ -10,22 +10,24 @@ import packObservable.ObservableAbstracto;
 public class ColaEntrada extends ObservableAbstracto {
 	private ListaCartas cartas;
 	private static ColaEntrada mColaEntrada;
-	
-	private ColaEntrada(){
-		
+
+	private ColaEntrada() {
+
 		super();
-		VentanaPrincipal v=new VentanaPrincipal();
-		cartas=new ListaCartas();
+		VentanaPrincipal v = new VentanaPrincipal();
+		cartas = new ListaCartas();
 	}
-	public static ColaEntrada getColaEntrada(){
-		if(mColaEntrada==null){
-			mColaEntrada= new ColaEntrada();
+
+	public static ColaEntrada getColaEntrada() {
+		if (mColaEntrada == null) {
+			mColaEntrada = new ColaEntrada();
 		}
 		return mColaEntrada;
 	}
-	public void revisarCola(){
-		boolean lleno=comprobarColaCompleta();
-		if(lleno){
+
+	public void revisarCola() {
+		boolean lleno = comprobarColaCompleta();
+		if (lleno) {
 			cartas.DosPrimeras();
 			cartas.ultimaCarta();
 
@@ -33,26 +35,33 @@ public class ColaEntrada extends ObservableAbstracto {
 	}
 
 	public void add(CartaAnimal c) {
-		
+
 		this.cartas.add(c);
-		
+
 	}
-	private boolean comprobarColaCompleta(){
-		boolean lleno=false;
-		if(cartas.longitud()==5){ 
-			lleno=true;
+
+	private boolean comprobarColaCompleta() {
+		boolean lleno = false;
+		if (cartas.longitud() == 5) {
+			lleno = true;
 		}
 		return lleno;
 	}
-	
+
 	public void echarCarta(CartaAnimal pCarta) {
-		
+
 		cartas.add(pCarta);
 		this.revisarCola();
 		System.out.println("Notificar Cola entrada");
 		this.notificar(this);
 	}
+
 	public ListaCartas getLista() {
 		return this.cartas;
+	}
+
+	public void imprimir() {
+		System.out.println("Lista de cartas en la cola al finalizar");
+		cartas.imprimirlista();
 	}
 }

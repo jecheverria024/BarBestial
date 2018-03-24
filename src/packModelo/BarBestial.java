@@ -84,6 +84,7 @@ public class BarBestial {
 		System.out.println("PARTIDA FINALIZADA");
 		EsLoQueHay.getEsLoQueHay().imprimir();
 		PuertaDelCielo.getPuertaDelCielo().imprimir();
+		ColaEntrada.getColaEntrada().imprimir();
 	}
 
 	private void imprimirmazo() {
