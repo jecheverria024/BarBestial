@@ -1,4 +1,5 @@
 package packModelo.packCartas;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -81,6 +82,30 @@ public class ListaCartas {
 			System.out.println("No hay carta");
 		}
 		return fuerza;
+	}
+	public Color getColorPosicion(int pos) {
+		Color color=null;
+		
+		try {
+			
+			if (this.getCarta(pos).getColor().name().equals("AZUL")){
+				color=Color.blue;
+			}
+			else if (this.getCarta(pos).getColor().name().equals("AMARILLO")){
+				color=Color.yellow;
+			}
+			else if (this.getCarta(pos).getColor().name().equals("VERDE")){
+				color=Color.green;
+			}
+			else if (this.getCarta(pos).getColor().name().equals("ROJO")){
+				color=Color.red;
+			}
+			System.out.println("sefwefewef"+color.getClass().getName());
+		}
+		catch(Exception e) {
+			System.out.println("No hay carta");
+		}
+		return color;
 	}
 }
 

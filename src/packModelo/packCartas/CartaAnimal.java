@@ -23,5 +23,8 @@ public class CartaAnimal extends CartaGeneral {
 		return fuerza;
 	}
 	
-
+	public EnumColor getColor() {
+		return color;
+	}
+	
 }

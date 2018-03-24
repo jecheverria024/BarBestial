@@ -28,6 +28,7 @@ import java.util.Observable;
 import java.util.Observer;
 import java.awt.event.ActionEvent;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
 
 public class VentanaPartida extends JFrame implements IObserver{
@@ -47,7 +48,7 @@ public class VentanaPartida extends JFrame implements IObserver{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentanaPartida frame = new VentanaPartida();
+					VentanaPartida frame = new VentanaPartida();				
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -97,7 +98,10 @@ public class VentanaPartida extends JFrame implements IObserver{
 		
 		for(int i=0; i<5;i++) {
 			int fuerza=ColaEntrada.getColaEntrada().getLista().getFuerzaPosicion(i);
+			Color color=ColaEntrada.getColaEntrada().getLista().getColorPosicion(i);
 			cola[i].setIcon(this.getImagen(fuerza));
+			cola[i].setBackground(color);
+			cola[i].setOpaque(true);
 		}
 		colaEntrada.removeAll();
 		colaEntrada.add(cola[0]);
@@ -155,35 +159,49 @@ public class VentanaPartida extends JFrame implements IObserver{
 	private void actualizarMano() {
 		mano=new JLabel[4];
 		mano[0]=new JLabel();
+		
 		mano[0].addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent me) {
-				Jugador.getJugador().echarCarta(0);
+				if (BarBestial.getBarBestial().Jugar(0)) {
+					System.exit( 0 ); 
+
+				}
 			}
 		});
 
+		
 		mano[1]=new JLabel();
 		mano[1].addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent me) {
-				Jugador.getJugador().echarCarta(1);
+				if (BarBestial.getBarBestial().Jugar(1)) {
+					System.exit( 0 ); 
+
+				}
 			}
 		});
 		mano[2]=new JLabel();
 		mano[2].addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent me) {
-				Jugador.getJugador().echarCarta(2);
+				if (BarBestial.getBarBestial().Jugar(2)) {
+					System.exit( 0 ); 
+				}
 			}
 		});
 
 		mano[3]=new JLabel();
 		mano[3].addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent me) {
-				Jugador.getJugador().echarCarta(3);
+				if (BarBestial.getBarBestial().Jugar(3)) {
+					System.exit( 0 ); 
+				}
 			}
 		});
 		int fuerza;
 		for(int i=0; i<Jugador.getJugador().getListaManos().longitud();i++) {
 			fuerza=Jugador.getJugador().getListaManos().getFuerzaPosicion(i);
 			mano[i].setIcon(this.getImagen(fuerza));
+			mano[i].setBackground(Color.BLUE);
+			mano[i].setOpaque(true);
 		}
 		
 		manoJugador.removeAll();

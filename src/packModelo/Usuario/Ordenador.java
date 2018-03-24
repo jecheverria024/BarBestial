@@ -1,5 +1,6 @@
 package packModelo.Usuario;
 
+import packModelo.BarBestial;
 import packModelo.EnumColor;
 
 public class Ordenador  extends Usuario{
@@ -16,6 +17,8 @@ public class Ordenador  extends Usuario{
 	}
 	
 	public void jugar() {
+		
+		echarCarta(1);
 		
 	}
 	public void asignarColor(EnumColor pColor){

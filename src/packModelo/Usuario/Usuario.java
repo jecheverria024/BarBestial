@@ -42,12 +42,12 @@ public class Usuario extends ObservableAbstracto {
 		mazo.borrarCarta(ca);
 		mano.add(ca);
 	}
-	public void comprobarCartas() {
-		if(mano.longitud()==0) {
-			//devuelve false si ya no le quedan cartas para finalizar la partida
-			BarBestial.getBarBestial().finalizarPartida();
-			//return false;
-		}//else return true;
+	public boolean tieneCartas() {
+		
+		if(mano.longitud()==0) 
+			return false;
+		else 
+			return true;
 	}
 	public int getPuntos() {
 		return  puntos;
