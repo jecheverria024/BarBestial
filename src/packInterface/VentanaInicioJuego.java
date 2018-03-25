@@ -1,6 +1,7 @@
 package packInterface;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -18,6 +19,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.awt.Toolkit;
 
 public class VentanaInicioJuego extends JFrame {
 
@@ -35,7 +37,7 @@ public class VentanaInicioJuego extends JFrame {
 			public void run() {
 				try {
 					VentanaInicioJuego frame = new VentanaInicioJuego();
-					frame.setVisible(true);
+				
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -103,6 +105,16 @@ public class VentanaInicioJuego extends JFrame {
 			String action = e.getActionCommand();
 			if (action.equals("Jugar")) {
 				VentanaPartida frame2 = new VentanaPartida();
+				Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+				Dimension frameSize = frame2.getSize(); //Tamaño del frame actual (ancho x alto)
+				if (frameSize.height > screenSize.height) {
+				frameSize.height = screenSize.height;
+				}
+				if (frameSize.width > screenSize.width) {
+				frameSize.width = screenSize.width;
+				}
+				frame2.setLocation((screenSize.width - frameSize.width) / 2, (screenSize.height - frameSize.height) / 2);
+				frame2.setExtendedState(MAXIMIZED_BOTH);
 				frame2.setVisible(true);
 				dispose();
 			} else if (action.equals("Salir")) {

@@ -19,6 +19,8 @@ import java.awt.FlowLayout;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JDialog;
+
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -159,7 +161,6 @@ public class VentanaPartida extends JFrame implements IObserver {
 			public void mouseClicked(MouseEvent me) {
 				if (BarBestial.getBarBestial().Jugar(0)) {
 					System.exit(0);
-
 				}
 			}
 		});
