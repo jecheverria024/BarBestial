@@ -51,13 +51,6 @@ public class Usuario extends ObservableAbstracto {
 			return true;
 	}
 
-	public int getPuntos() {
-		return puntos;
-	}
-
-	public EnumColor getColor() {
-		return color;
-	}
 
 	private ListaCartas inicializarMazo(EnumColor pColor) {
 		mazo = new ListaCartas();

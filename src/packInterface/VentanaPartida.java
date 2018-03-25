@@ -159,7 +159,7 @@ public class VentanaPartida extends JFrame implements IObserver {
 
 		mano[0].addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent me) {
-				if (BarBestial.getBarBestial().Jugar(0)) {
+				if (BarBestial.getBarBestial().jugar(0)) {
 					System.exit(0);
 				}
 			}
@@ -168,7 +168,7 @@ public class VentanaPartida extends JFrame implements IObserver {
 		mano[1] = new JLabel();
 		mano[1].addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent me) {
-				if (BarBestial.getBarBestial().Jugar(1)) {
+				if (BarBestial.getBarBestial().jugar(1)) {
 					System.exit(0);
 
 				}
@@ -177,7 +177,7 @@ public class VentanaPartida extends JFrame implements IObserver {
 		mano[2] = new JLabel();
 		mano[2].addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent me) {
-				if (BarBestial.getBarBestial().Jugar(2)) {
+				if (BarBestial.getBarBestial().jugar(2)) {
 					System.exit(0);
 				}
 			}
@@ -186,7 +186,7 @@ public class VentanaPartida extends JFrame implements IObserver {
 		mano[3] = new JLabel();
 		mano[3].addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent me) {
-				if (BarBestial.getBarBestial().Jugar(3)) {
+				if (BarBestial.getBarBestial().jugar(3)) {
 					System.exit(0);
 				}
 			}

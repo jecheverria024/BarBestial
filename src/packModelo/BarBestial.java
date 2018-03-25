@@ -42,7 +42,7 @@ public class BarBestial {
 		imprimirmazo();
 	}
 
-	public boolean Jugar(int pos) {
+	public boolean jugar(int pos) {
 		jugador.echarCarta(pos);
 		if (ordenador.tieneCartas()) {
 			ordenador.jugar();
@@ -74,7 +74,7 @@ public class BarBestial {
 		return this.jugador;
 	}
 
-	public void finalizarPartida() {
+	private void finalizarPartida() {
 		/*
 		 * if (Jugador.getJugador().getPuntos() > Ordenador.getOrdenador().getPuntos())
 		 * { System.out.println("el jugador" + Jugador.getJugador().getNombre() +
