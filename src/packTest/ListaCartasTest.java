@@ -39,6 +39,7 @@ public class ListaCartasTest {
 		assertTrue(c2.getCartas().longitud()==2);
 		
 	}
+	@Test
 	public void testUltimaCarta(){
 		c.ultimaCarta();
 		assertTrue(c1.getListCartas().longitud()==1);
