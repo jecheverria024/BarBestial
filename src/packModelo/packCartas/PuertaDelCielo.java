@@ -18,6 +18,9 @@ public class PuertaDelCielo {
 	public void add(CartaAnimal carta) {
 		cartas.add(carta);
 	}
+	public ListaCartas getCartas(){
+		return cartas;
+	}
 
 	public void imprimir() {
 		System.out.println("Lista de cartas en la puerta del cielo");

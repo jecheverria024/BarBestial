@@ -25,13 +25,14 @@ public class ColaEntrada extends ObservableAbstracto {
 		return mColaEntrada;
 	}
 
-	public void revisarCola() {
+	public boolean revisarCola() {
 		boolean lleno = comprobarColaCompleta();
 		if (lleno) {
 			cartas.DosPrimeras();
 			cartas.ultimaCarta();
 
 		}
+		return lleno;
 	}
 
 	public void add(CartaAnimal c) {
