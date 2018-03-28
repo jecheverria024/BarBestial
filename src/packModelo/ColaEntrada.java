@@ -14,7 +14,6 @@ public class ColaEntrada extends ObservableAbstracto {
 	private ColaEntrada() {
 
 		super();
-		VentanaPrincipal v = new VentanaPrincipal();
 		cartas = new ListaCartas();
 	}
 
@@ -37,7 +36,7 @@ public class ColaEntrada extends ObservableAbstracto {
 
 	public void add(CartaAnimal c) {
 
-		this.cartas.add(c);
+		cartas.add(c);
 
 	}
 

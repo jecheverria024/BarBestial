@@ -39,9 +39,8 @@ public class ListaCartas {
 
 	public void ultimaCarta() {
 		CartaAnimal c = lista.get(lista.size() - 1);
-		EsLoQueHay es = EsLoQueHay.getEsLoQueHay();
-		es.addLast(c);
-		this.borrarCarta(c);
+		EsLoQueHay.getEsLoQueHay().addLast(c);
+		borrarCarta(c);
 
 	}
 
@@ -59,11 +58,10 @@ public class ListaCartas {
 
 	public void DosPrimeras() {
 
-		PuertaDelCielo puerta = PuertaDelCielo.getPuertaDelCielo();
 		for (int i = 0; i < 2; i++) {
 			CartaAnimal c = this.conseguirCarta();
-			puerta.add(c);
-			this.borrarCarta(c);
+			PuertaDelCielo.getPuertaDelCielo().add(c);
+			borrarCarta(c);
 		}
 
 	}
