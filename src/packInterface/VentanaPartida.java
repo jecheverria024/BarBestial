@@ -111,40 +111,40 @@ public class VentanaPartida extends JFrame implements IObserver {
 		ImageIcon imagen;
 		switch (pFuerza) {
 		case 1:
-			imagen = new ImageIcon(getClass().getResource("/packImagen/mofeta.png"));
+			imagen = new ImageIcon(getClass().getResource("/packImagen/mofeta.PNG"));
 			break;
 		case 2:
-			imagen = new ImageIcon(getClass().getResource("/packImagen/loro.png"));
+			imagen = new ImageIcon(getClass().getResource("/packImagen/loro.PNG"));
 			break;
 		case 3:
-			imagen = new ImageIcon(getClass().getResource("/packImagen/canguro.png"));
+			imagen = new ImageIcon(getClass().getResource("/packImagen/canguro.PNG"));
 			break;
 		case 4:
-			imagen = new ImageIcon(getClass().getResource("/packImagen/mono.png"));
+			imagen = new ImageIcon(getClass().getResource("/packImagen/mono.PNG"));
 			break;
 		case 5:
-			imagen = new ImageIcon(getClass().getResource("/packImagen/camaleon.png"));
+			imagen = new ImageIcon(getClass().getResource("/packImagen/camaleon.PNG"));
 			break;
 		case 6:
-			imagen = new ImageIcon(getClass().getResource("/packImagen/foca.png"));
+			imagen = new ImageIcon(getClass().getResource("/packImagen/foca.PNG"));
 			break;
 		case 7:
-			imagen = new ImageIcon(getClass().getResource("/packImagen/cebra.png"));
+			imagen = new ImageIcon(getClass().getResource("/packImagen/cebra.PNG"));
 			break;
 		case 8:
-			imagen = new ImageIcon(getClass().getResource("/packImagen/jirafa.png"));
+			imagen = new ImageIcon(getClass().getResource("/packImagen/jirafa.PNG"));
 			break;
 		case 9:
-			imagen = new ImageIcon(getClass().getResource("/packImagen/serpiente.png"));
+			imagen = new ImageIcon(getClass().getResource("/packImagen/serpiente.PNG"));
 			break;
 		case 10:
-			imagen = new ImageIcon(getClass().getResource("/packImagen/cocodrilo.png"));
+			imagen = new ImageIcon(getClass().getResource("/packImagen/cocodrilo.PNG"));
 			break;
 		case 11:
-			imagen = new ImageIcon(getClass().getResource("/packImagen/hipopotamo.png"));
+			imagen = new ImageIcon(getClass().getResource("/packImagen/hipopotamo.PNG"));
 			break;
 		case 12:
-			imagen = new ImageIcon(getClass().getResource("/packImagen/leon.png"));
+			imagen = new ImageIcon(getClass().getResource("/packImagen/leon.PNG"));
 			break;
 		default:
 			imagen = new ImageIcon(getClass().getResource("/packImagen/transparente.png"));

@@ -29,7 +29,6 @@ public class ColaEntrada extends ObservableAbstracto {
 		if (lleno) {
 			cartas.DosPrimeras();
 			cartas.ultimaCarta();
-
 		}
 		return lleno;
 	}
