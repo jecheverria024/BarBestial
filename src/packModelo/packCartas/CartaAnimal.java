@@ -24,5 +24,7 @@ public class CartaAnimal extends CartaGeneral {
 	public EnumColor getColor() {
 		return color;
 	}
-
+	public String info() {
+		return fuerza+" "+color.name();
+	}
 }

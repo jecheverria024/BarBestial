@@ -15,9 +15,7 @@ public class BarBestial {
 	private boolean juegoFinalizado;
 	private Jugador jugador;
 	private Ordenador ordenador;
-
-	private BarBestial() {
-
+	private BarBestial() {	
 	}
 
 	public static BarBestial getBarBestial() {
@@ -43,6 +41,7 @@ public class BarBestial {
 	}
 
 	public boolean jugar(int pos) {
+		System.out.println("jugandooo");
 		jugador.echarCarta(pos);
 		if (ordenador.tieneCartas()) {
 			ordenador.jugar();
@@ -73,7 +72,9 @@ public class BarBestial {
 	public Jugador getJugador() {
 		return this.jugador;
 	}
-
+	public String infoMano() {
+		return this.jugador.infoMano();
+	}
 	private void finalizarPartida() {
 		/*
 		 * if (Jugador.getJugador().getPuntos() > Ordenador.getOrdenador().getPuntos())

@@ -33,7 +33,7 @@ public class Usuario extends ObservableAbstracto {
 			this.cogerCarta();
 		}
 		System.out.println("Notificar usuario");
-		this.notificar(this);
+		
 	}
 
 	public void cogerCarta() {

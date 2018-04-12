@@ -75,8 +75,8 @@ public class VentanaPartida extends JFrame implements IObserver {
 		ColaEntrada.getColaEntrada().registrarObservador(this);
 		BarBestial.getBarBestial().iniciarPartida();
 		BarBestial.getBarBestial().getJugador().registrarObservador(this);
-		this.actualizarCola();
-		this.actualizarMano();
+		//this.actualizarCola(ColaEntrada.getColaEntrada().infoCartas());
+		this.actualizarMano(BarBestial.getBarBestial().infoMano());
 
 	}
 
@@ -84,17 +84,18 @@ public class VentanaPartida extends JFrame implements IObserver {
 	 * Se encarga de inicializar la cola, aun falta poner como colocar las fotos
 	 * segun fuerza y eso
 	 */
-	private void actualizarCola() {
+	private void actualizarCola(String info) {
 		cola = new JLabel[5];
 		cola[0] = new JLabel();
 		cola[1] = new JLabel();
 		cola[2] = new JLabel();
 		cola[3] = new JLabel();
 		cola[4] = new JLabel();
-
-		for (int i = 0; i < 5; i++) {
-			int fuerza = ColaEntrada.getColaEntrada().getLista().getFuerzaPosicion(i);
-			Color color = ColaEntrada.getColaEntrada().getLista().getColorPosicion(i);
+		System.out.println(info);
+		String[] parts = info.split(" ");
+		for (int i = 0; i < parts.length/2; i++) {
+			int fuerza=Integer.parseInt(parts[i*2]);
+			Color color=this.getColor(parts[i*2+1]);
 			cola[i].setIcon(this.getImagen(fuerza));
 			cola[i].setBackground(color);
 			cola[i].setOpaque(true);
@@ -106,7 +107,19 @@ public class VentanaPartida extends JFrame implements IObserver {
 		colaEntrada.add(cola[3]);
 		colaEntrada.add(cola[4]);
 	}
-
+	public Color getColor(String c) {
+		Color color = null;
+		if (c.equals("AZUL")) {
+			color = Color.blue;
+		} else if (c.equals("AMARILLO")) {
+			color = Color.yellow;
+		} else if (c.equals("VERDE")) {
+			color = Color.green;
+		} else if (c.equals("ROJO")) {
+			color = Color.red;
+		}
+		return color;
+	}
 	public ImageIcon getImagen(int pFuerza) {
 		ImageIcon imagen;
 		switch (pFuerza) {
@@ -153,7 +166,7 @@ public class VentanaPartida extends JFrame implements IObserver {
 		return imagen;
 	}
 
-	private void actualizarMano() {
+	private void actualizarMano(String info) {
 		mano = new JLabel[4];
 		mano[0] = new JLabel();
 
@@ -191,20 +204,22 @@ public class VentanaPartida extends JFrame implements IObserver {
 				}
 			}
 		});
-		int fuerza;
-		for (int i = 0; i < 4; i++) {
-			fuerza = BarBestial.getBarBestial().getJugador().getListaManos().getFuerzaPosicion(i);
-			mano[i].setIcon(this.getImagen(fuerza));
-			mano[i].setBackground(Color.BLUE);
-			mano[i].setOpaque(true);
+		System.out.println(info);
+		if(info!=null) {
+			String[] parts = info.split(" ");
+			for (int i = 0; i < parts.length/2; i++) {
+				int fuerza=Integer.parseInt(parts[i*2]);
+				Color color=this.getColor(parts[i*2+1]);
+				mano[i].setIcon(this.getImagen(fuerza));
+				mano[i].setBackground(color);
+				mano[i].setOpaque(true);
+			}
 		}
-
 		manoJugador.removeAll();
 		manoJugador.add(mano[0]);
 		manoJugador.add(mano[1]);
 		manoJugador.add(mano[2]);
 		manoJugador.add(mano[3]);
-
 	}
 
 	private JPanel getPanel_1() {
@@ -244,13 +259,13 @@ public class VentanaPartida extends JFrame implements IObserver {
 	}
 
 	@Override
-	public void update(ObservableAbstracto pObservable) {
+	public void update(ObservableAbstracto pObservable, Object o) {
 		if (pObservable instanceof ColaEntrada) {
-			this.actualizarCola();
+			this.actualizarCola((String) o);
 			this.colaEntrada.updateUI();
 			this.colaEntrada.repaint();
 		} else if (pObservable instanceof Usuario) {
-			this.actualizarMano();
+			this.actualizarMano((String) o);
 			this.manoJugador.updateUI();
 			this.manoJugador.repaint();
 			System.out.println("mano jugador");

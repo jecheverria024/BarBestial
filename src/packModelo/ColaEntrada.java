@@ -46,13 +46,15 @@ public class ColaEntrada extends ObservableAbstracto {
 		}
 		return lleno;
 	}
-
+	public String infoCartas() {
+		return this.cartas.infoCartas();
+	}
 	public void echarCarta(CartaAnimal pCarta) {
 
 		cartas.add(pCarta);
 		this.revisarCola();
 		System.out.println("Notificar Cola entrada");
-		this.notificar(this);
+		this.notificar(this, this.infoCartas());
 	}
 
 	public ListaCartas getLista() {

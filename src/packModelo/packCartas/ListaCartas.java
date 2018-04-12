@@ -20,7 +20,21 @@ public class ListaCartas {
 	public int longitud() {
 		return lista.size();
 	}
-
+	
+	public String infoCartas() {
+		System.out.println("longitud: "+this.lista.size());		
+		CartaAnimal unaCarta=null;
+		Iterator<CartaAnimal> itr= this.getIterador();
+		String info=null;
+		if(this.lista.size()>0) {
+			info=itr.next().info();
+			while(itr.hasNext()) {
+				unaCarta=itr.next();
+				info=info+" "+unaCarta.info();
+			}
+		}
+		return info;
+	}
 	public void add(CartaAnimal c) {
 		lista.add(c);
 	}
@@ -73,36 +87,6 @@ public class ListaCartas {
 
 	}
 
-	public int getFuerzaPosicion(int pos) {
-		int fuerza = -1;
-		try {
-			fuerza = this.getCarta(pos).getFuerza();
-		} catch (Exception e) {
-			System.out.println("No hay carta");
-		}
-		return fuerza;
-	}
-
-	public Color getColorPosicion(int pos) {
-		Color color = null;
-
-		try {
-
-			if (this.getCarta(pos).getColor().name().equals("AZUL")) {
-				color = Color.blue;
-			} else if (this.getCarta(pos).getColor().name().equals("AMARILLO")) {
-				color = Color.yellow;
-			} else if (this.getCarta(pos).getColor().name().equals("VERDE")) {
-				color = Color.green;
-			} else if (this.getCarta(pos).getColor().name().equals("ROJO")) {
-				color = Color.red;
-			}
-			System.out.println("sefwefewef" + color.getClass().getName());
-		} catch (Exception e) {
-			System.out.println("No hay carta");
-		}
-		return color;
-	}
 
 	public void imprimirlista() {
 		System.out.println(lista.size());
