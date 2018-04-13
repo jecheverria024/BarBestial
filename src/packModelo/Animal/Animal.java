@@ -8,4 +8,10 @@ public abstract class Animal {
 
 	public Animal() {
 	}
+	public void ejecutarAnimalada(int fuerza, String color) {
+		this.animalada.hacerAnimalada(fuerza, color);
+	}
+	public void inicializarAnimalada(IAnimalada ia) {
+		this.animalada=ia;
+	}
 }

@@ -2,6 +2,7 @@ package packModelo.packCartas;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 
@@ -94,5 +95,58 @@ public class ListaCartas {
 			System.out.print(lista.get(i).getColor() + "   ");
 			System.out.println(lista.get(i).getFuerza());
 		}
+	}
+
+	public void avanzarCartaHipopotamo(int fuerza, String color) {
+		Iterator<CartaAnimal> itr=this.getIterador();
+		int posicion=0;
+		CartaAnimal ca=null;
+		boolean encontrado=false;
+		while(itr.hasNext() && !encontrado) {
+			ca=itr.next();
+			if(ca.info().equals(fuerza+" "+color)) {
+				encontrado=true;
+			}
+			else {
+				posicion++;
+			}
+		}		
+		boolean salir=false;
+		while(!salir) {
+			posicion=posicion-1;
+			System.out.println("Posicion: "+posicion);
+			if(posicion>=0 && this.lista.get(posicion).getFuerza()<fuerza && this.lista.get(posicion).getFuerza()!=7  ) {
+				this.lista.remove(ca);
+				this.lista.add(posicion,ca);
+			}
+			else {
+				salir=true;
+			}
+		}
+	}
+	public void avanzarCartaJirafa(int fuerza, String color) {
+		Iterator<CartaAnimal> itr=this.getIterador();
+		int posicion=0;
+		CartaAnimal ca=null;
+		boolean encontrado=false;
+		while(itr.hasNext() && !encontrado) {
+			ca=itr.next();
+			if(ca.info().equals(fuerza+" "+color)) {
+				encontrado=true;
+			}
+			else {
+				posicion++;
+			}
+		}
+		posicion=posicion-1;
+		System.out.println("Posicion: "+posicion);
+		if(posicion>=0 && this.lista.get(posicion).getFuerza()<fuerza && this.lista.get(posicion).getFuerza()!=7  ) {
+			this.lista.remove(ca);
+			this.lista.add(posicion,ca);
+		}
+	}
+
+	public void ordenarSegunFuerza() {
+		Collections.sort(this.lista);
 	}
 }

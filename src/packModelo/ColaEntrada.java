@@ -1,5 +1,7 @@
 package packModelo;
 
+import java.util.Arrays;
+
 import packInterface.VentanaPrincipal;
 import packModelo.packCartas.CartaAnimal;
 import packModelo.packCartas.EsLoQueHay;
@@ -50,8 +52,11 @@ public class ColaEntrada extends ObservableAbstracto {
 		return this.cartas.infoCartas();
 	}
 	public void echarCarta(CartaAnimal pCarta) {
-
 		cartas.add(pCarta);
+		//mantener este if hasta que esten todas las animaladas hechas 
+		if(pCarta.getFuerza()==11 || pCarta.getFuerza()==9 || pCarta.getFuerza()==8) {
+			pCarta.ejecutarAnimalada();
+		}
 		this.revisarCola();
 		System.out.println("Notificar Cola entrada");
 		this.notificar(this, this.infoCartas());
@@ -64,5 +69,16 @@ public class ColaEntrada extends ObservableAbstracto {
 	public void imprimir() {
 		System.out.println("Lista de cartas en la cola al finalizar");
 		cartas.imprimirlista();
+	}
+
+	public void avanzarCartaHipopotamo(int fuerza, String color) {
+		cartas.avanzarCartaHipopotamo(fuerza, color);
+	}
+	public void avanzarCartaJirafa(int fuerza, String color) {
+		cartas.avanzarCartaJirafa(fuerza, color);
+	}
+
+	public void ordenar() {
+		this.cartas.ordenarSegunFuerza();
 	}
 }

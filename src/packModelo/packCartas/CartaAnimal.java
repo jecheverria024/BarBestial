@@ -3,7 +3,7 @@ package packModelo.packCartas;
 import packModelo.EnumColor;
 import packModelo.Animal.Animal;
 
-public class CartaAnimal extends CartaGeneral {
+public class CartaAnimal extends CartaGeneral implements Comparable<CartaAnimal> {
 	private int fuerza;
 	private EnumColor color;
 	private Animal animal;
@@ -26,5 +26,19 @@ public class CartaAnimal extends CartaGeneral {
 	}
 	public String info() {
 		return fuerza+" "+color.name();
+	}
+	public void ejecutarAnimalada() {
+		this.animal.ejecutarAnimalada(fuerza, color.name());
+	}
+
+	@Override
+	public int compareTo(CartaAnimal ca) {
+		if (fuerza < ca.fuerza) {
+            return 1;
+        }
+		else if (fuerza >= ca.fuerza) {
+            return -1;
+        }
+        return 0;
 	}
 }
