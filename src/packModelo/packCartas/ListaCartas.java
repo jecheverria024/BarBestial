@@ -222,6 +222,11 @@ public class ListaCartas {
 			}
 		}
 	}
+	public void avanzarCartaLeon(){
+		CartaAnimal c= lista.get(lista.size()-1);
+		lista.remove(lista.size()-1);
+		lista.add(0,c);
+	}
 
 	public void ordenarSegunFuerza() {
 		Collections.sort(this.lista);
