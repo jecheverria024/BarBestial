@@ -145,6 +145,83 @@ public class ListaCartas {
 			this.lista.add(posicion,ca);
 		}
 	}
+	
+	public void avanzarCartaCanguro(int num){
+		
+		if(num==1){
+			
+			CartaAnimal carta= lista.get(lista.size()-1);
+			this.lista.remove(carta);
+			this.lista.add(lista.size()-2,carta);
+			
+		}else if(num==2){
+			
+			CartaAnimal carta= lista.get(lista.size()-1);
+			this.lista.remove(carta);
+			this.lista.add(lista.size()-3, carta);
+			
+		}else{
+			System.out.println("inserta un 1 o un 2");
+		}
+	}
+	
+	public boolean buscarPorFuerza(int pFuerza){
+		Iterator<CartaAnimal> it= this.getIterador();
+		CartaAnimal c=null;
+		boolean enc= false;
+		while(it.hasNext() && !enc){
+			c=it.next();
+			if(c.getFuerza()==pFuerza){
+				enc=true;
+			}
+		}
+	
+		return enc;
+	}
+	public int posicionDeLaCarta(int pFuerza){
+		int i=0;
+		boolean enc=false;
+		while(i<lista.size() && !enc){
+			if(lista.get(i).getFuerza()==pFuerza){
+				enc=true;
+			}else{
+				i++;
+			}
+		}
+		if(enc){
+			return i;
+		}else{
+			return -1;
+		}
+		
+	}
+	public void avanzarCartaMono(){
+		CartaAnimal c= lista.get(lista.size()-1);
+		lista.remove(lista.size()-1);
+		lista.add(0,c);
+		
+	}
+	public void anadirCartaEnPos(int pos, CartaAnimal c){
+		lista.add(pos,c);
+	}
+	
+	public void avanzarCartaCocodrilo(){
+		int i=0;
+		boolean salir=false;
+		while(i<lista.size() &&!salir ){
+			if(lista.get(i).getFuerza()<10){
+				if(lista.get(i).getFuerza()!=7){
+					EsLoQueHay.getEsLoQueHay().addLast(lista.get(i));
+					lista.remove(i);
+				}else{
+					salir=true;
+				}
+				
+			}else{
+				salir=true;
+			}
+		}
+	}
 
 	public void ordenarSegunFuerza() {
 		Collections.sort(this.lista);
