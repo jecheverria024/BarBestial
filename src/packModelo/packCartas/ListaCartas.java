@@ -264,12 +264,14 @@ public class ListaCartas {
 					
 				}
 			}*/
+			if(fuerzamax!=0) {
 			for (int j=lista.size()-1;j>=0;j--) {
 				if(lista.get(j).getFuerza()==fuerzamax && lista.get(j).getFuerza()!=1) {
 					EsLoQueHay.getEsLoQueHay().addLast(lista.get(j));
 					borrarCarta(lista.get(j));
 					imprimirlista();
 				}
+			}
 			}
 		}
 	}
@@ -285,5 +287,9 @@ public class ListaCartas {
 			}
 		}
 		return max;
+	}
+	public void asustarLoro(int pos) {
+		EsLoQueHay.getEsLoQueHay().addLast(lista.get(pos));
+		borrarCarta(lista.get(pos));
 	}
 }
