@@ -24,7 +24,6 @@ public class UsuarioTest {
 	}
 
 	@Test
-	
 	public void testTieneCartas(){
 		jugador.cogerCarta();	
 		assertTrue(jugador.tieneCartas());

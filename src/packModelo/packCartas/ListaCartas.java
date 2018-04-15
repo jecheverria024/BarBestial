@@ -231,4 +231,30 @@ public class ListaCartas {
 	public void ordenarSegunFuerza() {
 		Collections.sort(this.lista);
 	}
+	public void repelerMayorFuerza() {
+		for(int i=0; i<2;i++) {
+			int fuerzamax=buscarCartaAlta();
+			Iterator<CartaAnimal> it= this.getIterador();
+			CartaAnimal c=null;
+			while(it.hasNext()){
+				c=it.next();
+				if(c.getFuerza()==fuerzamax){
+					borrarCarta(c);
+					EsLoQueHay.getEsLoQueHay().addLast(c);
+				}
+			}
+		}
+	}
+	private int buscarCartaAlta() {
+		Iterator<CartaAnimal> it= this.getIterador();
+		CartaAnimal c=null;
+		int max=0;
+		while(it.hasNext()){
+			c=it.next();
+			if(c.getFuerza()>max){
+				max=c.getFuerza();
+			}
+		}
+		return max;
+	}
 }
