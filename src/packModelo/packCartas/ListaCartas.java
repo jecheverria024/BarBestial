@@ -9,6 +9,7 @@ import java.util.Iterator;
 import packModelo.ColaEntrada;
 import packModelo.EnumColor;
 import packModelo.Animal.Leon;
+import packModelo.Animalada.ACanguro;
 
 public class ListaCartas {
 	private ArrayList<CartaAnimal> lista;
@@ -147,22 +148,35 @@ public class ListaCartas {
 	}
 	
 	public void avanzarCartaCanguro(int num){
-		
-		if(num==1){
+		if(lista.size()>=2){
+			if(num==1){
+				
+				CartaAnimal carta= lista.get(lista.size()-1);
+				this.lista.remove(carta);
+				this.lista.add(lista.size()-1,carta);
+				
+			}else if(num==2){
+				
+				CartaAnimal carta= lista.get(lista.size()-1);
+				this.lista.remove(carta);
+				this.lista.add(lista.size()-2, carta);
+				
+			}else{
+				System.out.println("inserta un 1 o un 2");
+				
+				
+			}
+		}else if(lista.size()==1){
+				
+				CartaAnimal carta= lista.get(lista.size()-1);
+				this.lista.remove(carta);
+				this.lista.add(lista.size()-1,carta);
 			
-			CartaAnimal carta= lista.get(lista.size()-1);
-			this.lista.remove(carta);
-			this.lista.add(lista.size()-2,carta);
-			
-		}else if(num==2){
-			
-			CartaAnimal carta= lista.get(lista.size()-1);
-			this.lista.remove(carta);
-			this.lista.add(lista.size()-3, carta);
 			
 		}else{
 			System.out.println("inserta un 1 o un 2");
 		}
+		
 	}
 	
 	public boolean buscarPorFuerza(int pFuerza){
@@ -206,20 +220,19 @@ public class ListaCartas {
 	}
 	
 	public void avanzarCartaCocodrilo(){
-		int i=0;
+		System.out.println("iniciar animalada cocodrilo");
+		int i=lista.size()-2;
 		boolean salir=false;
-		while(i<lista.size() &&!salir ){
-			if(lista.get(i).getFuerza()<10){
-				if(lista.get(i).getFuerza()!=7){
+		while(i>=0 &&!salir ){
+			if(lista.get(i).getFuerza()<10 && lista.get(i).getFuerza()!=7){
 					EsLoQueHay.getEsLoQueHay().addLast(lista.get(i));
 					lista.remove(i);
+					i--;
 				}else{
 					salir=true;
 				}
 				
-			}else{
-				salir=true;
-			}
+			
 		}
 	}
 	public void avanzarCartaLeon(){

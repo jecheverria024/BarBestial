@@ -55,7 +55,7 @@ public class Usuario extends ObservableAbstracto {
 	private ListaCartas inicializarMazo(EnumColor pColor) {
 		mazo = new ListaCartas();
 		String pImagen;
-		for (int i = 1; i < 12; i++) {
+		for (int i = 1; i <= 12; i++) {
 			Animal a = AnimalFactory.getAnimalFactory().crearAnimal(i);
 			pImagen = a.getClass().getName();
 			CartaAnimal c = new CartaAnimal(pImagen, i, pColor, a);

@@ -24,7 +24,7 @@ public void hacerAnimalada(int pFuerza, String pColor) {
 		int pos;
 		int pos1;
 		pos=list.posicionDeLaCarta(10);
-		pos1=list.posicionDeLaCarta(10);
+		pos1=list.posicionDeLaCarta(11);
 		while(pos!=-1 || pos1!=-1){
 			if(pos!=-1){
 				EsLoQueHay.getEsLoQueHay().addLast(list.getCarta(pos));
@@ -38,6 +38,7 @@ public void hacerAnimalada(int pFuerza, String pColor) {
 			pos1= list.posicionDeLaCarta(11);
 			
 		}
+		
 	}
 	
 	private void moverPrimeraPos(){
@@ -50,7 +51,7 @@ public void hacerAnimalada(int pFuerza, String pColor) {
 			if(list.getCarta(i).getFuerza()==4){
 				CartaAnimal c=list.getCarta(i);
 				list.borrarCarta(c);
-				list.anadirCartaEnPos(2, c);
+				list.anadirCartaEnPos(1, c);
 				}
 			i++;
 		}
