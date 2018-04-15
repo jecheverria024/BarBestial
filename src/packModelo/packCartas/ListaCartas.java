@@ -149,10 +149,10 @@ public class ListaCartas {
 	}
 	
 	public void avanzarCartaCanguro(int num){
-		if(lista.size()>=2){
+		if(lista.size()>=3){
 			if(num==1){
 				
-				CartaAnimal carta= lista.get(lista.size()-1);
+				CartaAnimal carta= lista.get(lista.size()-2);
 				this.lista.remove(carta);
 				this.lista.add(lista.size()-1,carta);
 				
@@ -167,27 +167,26 @@ public class ListaCartas {
 				
 				
 			}
-		}else if(lista.size()==1){
+		}else if(lista.size()==2){
 				
 				CartaAnimal carta= lista.get(lista.size()-1);
 				this.lista.remove(carta);
 				this.lista.add(lista.size()-1,carta);
 			
 			
-		}else{
-			System.out.println("inserta un 1 o un 2");
 		}
 		
 	}
 	
 	public boolean buscarPorFuerza(int pFuerza){
-		Iterator<CartaAnimal> it= this.getIterador();
-		CartaAnimal c=null;
+		int i=0;
 		boolean enc= false;
-		while(it.hasNext() && !enc){
-			c=it.next();
+		while(i<lista.size()-1 && !enc){
+			CartaAnimal c=lista.get(i);
 			if(c.getFuerza()==pFuerza){
 				enc=true;
+			}else{
+				i++;
 			}
 		}
 	
