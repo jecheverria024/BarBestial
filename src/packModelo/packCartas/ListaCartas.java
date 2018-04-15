@@ -47,6 +47,7 @@ public class ListaCartas {
 
 	public void borrarCarta(CartaAnimal c) {
 		lista.remove(c);
+		System.out.println("borrada "+c.getFuerza());
 	}
 
 	public CartaAnimal conseguirCarta() {
@@ -245,26 +246,41 @@ public class ListaCartas {
 		Collections.sort(this.lista);
 	}
 	public void repelerMayorFuerza() {
-		for(int i=0; i<2;i++) {
+		System.out.println("//////////////////////////////////////////////////////////////////////////////////////");
+		int loops=2;
+		if(lista.size()<2) {
+			loops=lista.size();
+		}
+		for(int i=0; i<loops;i++) {
+			System.out.println("1dentro");
 			int fuerzamax=buscarCartaAlta();
-			Iterator<CartaAnimal> it= this.getIterador();
-			CartaAnimal c=null;
+			System.out.println(fuerzamax);
+			//Iterator<CartaAnimal> it= this.getIterador();
+			/*CartaAnimal c=null;
 			while(it.hasNext()){
 				c=it.next();
-				if(c.getFuerza()==fuerzamax){
-					borrarCarta(c);
-					EsLoQueHay.getEsLoQueHay().addLast(c);
+				if(c.getFuerza()==fuerzamax && c.getFuerza()!=1){
+					
+					
+				}
+			}*/
+			for (int j=lista.size()-1;j>=0;j--) {
+				if(lista.get(j).getFuerza()==fuerzamax && lista.get(j).getFuerza()!=1) {
+					EsLoQueHay.getEsLoQueHay().addLast(lista.get(j));
+					borrarCarta(lista.get(j));
+					imprimirlista();
 				}
 			}
 		}
 	}
 	private int buscarCartaAlta() {
+		System.out.println("dentro2");
 		Iterator<CartaAnimal> it= this.getIterador();
 		CartaAnimal c=null;
-		int max=0;
+		int max=1;
 		while(it.hasNext()){
 			c=it.next();
-			if(c.getFuerza()>max){
+			if(c.getFuerza()>=max){
 				max=c.getFuerza();
 			}
 		}
