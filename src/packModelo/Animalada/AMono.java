@@ -14,11 +14,9 @@ public void hacerAnimalada(int pFuerza, String pColor) {
 			this.moverPrimeraPos();
 			this.moverDemasMonos();
 		}
-
 	}
 
 	private boolean hayMas(){
-		
 		return list.buscarPorFuerza(4);
 	}
 	
@@ -27,8 +25,8 @@ public void hacerAnimalada(int pFuerza, String pColor) {
 		int pos1;
 		pos=list.posicionDeLaCarta(10);
 		pos1=list.posicionDeLaCarta(10);
-		while(pos!=-1 && pos1!=-1){
-			if(pos1!=-1){
+		while(pos!=-1 || pos1!=-1){
+			if(pos!=-1){
 				EsLoQueHay.getEsLoQueHay().addLast(list.getCarta(pos));
 				list.borrarCarta(list.getCarta(pos));
 			}else if(pos1!=-1){
@@ -40,9 +38,6 @@ public void hacerAnimalada(int pFuerza, String pColor) {
 			pos1= list.posicionDeLaCarta(11);
 			
 		}
-		
-		
-	
 	}
 	
 	private void moverPrimeraPos(){
@@ -50,7 +45,6 @@ public void hacerAnimalada(int pFuerza, String pColor) {
 	}
 	
 	private void moverDemasMonos(){
-		
 		int i=1;
 		while(i<list.longitud()){
 			if(list.getCarta(i).getFuerza()==4){
