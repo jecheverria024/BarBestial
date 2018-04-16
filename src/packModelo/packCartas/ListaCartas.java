@@ -246,15 +246,12 @@ public class ListaCartas {
 	}
 
 	public void repelerMayorFuerza() {
-		System.out.println("//////////////////////////////////////////////////////////////////////////////////////");
 		int loops = 2;
 		if (lista.size() < 2) {
 			loops = lista.size();
 		}
 		for (int i = 0; i < loops; i++) {
-			System.out.println("1dentro");
 			int fuerzamax = buscarCartaAlta();
-			System.out.println(fuerzamax);
 			// Iterator<CartaAnimal> it= this.getIterador();
 			/*
 			 * CartaAnimal c=null; while(it.hasNext()){ c=it.next();
@@ -277,7 +274,6 @@ public class ListaCartas {
 	}
 
 	private int buscarCartaAlta() {
-		System.out.println("dentro2");
 		Iterator<CartaAnimal> it = this.getIterador();
 		CartaAnimal c = null;
 		int max = 1;
