@@ -279,12 +279,20 @@ public class ListaCartas {
 		Iterator<CartaAnimal> it= this.getIterador();
 		CartaAnimal c=null;
 		int max=1;
-		while(it.hasNext()){
+		int i=lista.size()-1;
+		while(i>0) {
+			if(lista.get(i).getFuerza()>max) {
+				max=lista.get(i).getFuerza();
+			}
+			i--;
+			
+		}
+		/*while(it.hasNext()){
 			c=it.next();
 			if(c.getFuerza()>=max){
 				max=c.getFuerza();
 			}
-		}
+		}*/
 		return max;
 	}
 	public void asustarLoro(int pos) {
