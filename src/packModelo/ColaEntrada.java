@@ -92,12 +92,10 @@ public class ColaEntrada extends ObservableAbstracto {
 	}
 
 	public void repelerMofeta() {
-		System.out.println("pr3");
 		this.cartas.repelerMayorFuerza();
 	}
 
 	public void asustarLoro(int pos) {
-		System.out.println("pr3");
 		this.cartas.asustarLoro(pos);
 	}
 }

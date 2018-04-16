@@ -48,7 +48,6 @@ public class ListaCartas {
 
 	public void borrarCarta(CartaAnimal c) {
 		lista.remove(c);
-		System.out.println("borrada " + c.getFuerza());
 	}
 
 	public CartaAnimal conseguirCarta() {
@@ -268,6 +267,7 @@ public class ListaCartas {
 				for (int j = lista.size() - 1; j >= 0; j--) {
 					if (lista.get(j).getFuerza() == fuerzamax && lista.get(j).getFuerza() != 1) {
 						EsLoQueHay.getEsLoQueHay().addLast(lista.get(j));
+						System.out.println("borrada" +lista.get(j).getFuerza());
 						borrarCarta(lista.get(j));
 						imprimirlista();
 					}
@@ -282,7 +282,7 @@ public class ListaCartas {
 		CartaAnimal c = null;
 		int max = 1;
 		int i = lista.size() - 1;
-		while (i > 0) {
+		while (i >= 0) {
 			if (lista.get(i).getFuerza() > max) {
 				max = lista.get(i).getFuerza();
 			}
