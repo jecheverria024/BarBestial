@@ -33,7 +33,7 @@ public class Usuario extends ObservableAbstracto {
 			this.cogerCarta();
 		}
 		System.out.println("Notificar usuario");
-		
+
 	}
 
 	public void cogerCarta() {
@@ -50,7 +50,6 @@ public class Usuario extends ObservableAbstracto {
 		else
 			return true;
 	}
-
 
 	private ListaCartas inicializarMazo(EnumColor pColor) {
 		mazo = new ListaCartas();

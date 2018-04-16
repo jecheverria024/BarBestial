@@ -22,21 +22,22 @@ public class ListaCartas {
 	public int longitud() {
 		return lista.size();
 	}
-	
+
 	public String infoCartas() {
-		System.out.println("longitud: "+this.lista.size());		
-		CartaAnimal unaCarta=null;
-		Iterator<CartaAnimal> itr= this.getIterador();
-		String info=null;
-		if(this.lista.size()>0) {
-			info=itr.next().info();
-			while(itr.hasNext()) {
-				unaCarta=itr.next();
-				info=info+" "+unaCarta.info();
+		System.out.println("longitud: " + this.lista.size());
+		CartaAnimal unaCarta = null;
+		Iterator<CartaAnimal> itr = this.getIterador();
+		String info = null;
+		if (this.lista.size() > 0) {
+			info = itr.next().info();
+			while (itr.hasNext()) {
+				unaCarta = itr.next();
+				info = info + " " + unaCarta.info();
 			}
 		}
 		return info;
 	}
+
 	public void add(CartaAnimal c) {
 		lista.add(c);
 	}
@@ -47,7 +48,7 @@ public class ListaCartas {
 
 	public void borrarCarta(CartaAnimal c) {
 		lista.remove(c);
-		System.out.println("borrada "+c.getFuerza());
+		System.out.println("borrada " + c.getFuerza());
 	}
 
 	public CartaAnimal conseguirCarta() {
@@ -90,7 +91,6 @@ public class ListaCartas {
 
 	}
 
-
 	public void imprimirlista() {
 		System.out.println(lista.size());
 		for (int i = 0; i < lista.size(); i++) {
@@ -100,201 +100,202 @@ public class ListaCartas {
 	}
 
 	public void avanzarCartaHipopotamo(int fuerza, String color) {
-		Iterator<CartaAnimal> itr=this.getIterador();
-		int posicion=0;
-		CartaAnimal ca=null;
-		boolean encontrado=false;
-		while(itr.hasNext() && !encontrado) {
-			ca=itr.next();
-			if(ca.info().equals(fuerza+" "+color)) {
-				encontrado=true;
-			}
-			else {
+		Iterator<CartaAnimal> itr = this.getIterador();
+		int posicion = 0;
+		CartaAnimal ca = null;
+		boolean encontrado = false;
+		while (itr.hasNext() && !encontrado) {
+			ca = itr.next();
+			if (ca.info().equals(fuerza + " " + color)) {
+				encontrado = true;
+			} else {
 				posicion++;
 			}
-		}		
-		boolean salir=false;
-		while(!salir) {
-			posicion=posicion-1;
-			System.out.println("Posicion: "+posicion);
-			if(posicion>=0 && this.lista.get(posicion).getFuerza()<fuerza && this.lista.get(posicion).getFuerza()!=7  ) {
+		}
+		boolean salir = false;
+		while (!salir) {
+			posicion = posicion - 1;
+			System.out.println("Posicion: " + posicion);
+			if (posicion >= 0 && this.lista.get(posicion).getFuerza() < fuerza
+					&& this.lista.get(posicion).getFuerza() != 7) {
 				this.lista.remove(ca);
-				this.lista.add(posicion,ca);
-			}
-			else {
-				salir=true;
+				this.lista.add(posicion, ca);
+			} else {
+				salir = true;
 			}
 		}
 	}
+
 	public void avanzarCartaJirafa(int fuerza, String color) {
-		Iterator<CartaAnimal> itr=this.getIterador();
-		int posicion=0;
-		CartaAnimal ca=null;
-		boolean encontrado=false;
-		while(itr.hasNext() && !encontrado) {
-			ca=itr.next();
-			if(ca.info().equals(fuerza+" "+color)) {
-				encontrado=true;
-			}
-			else {
+		Iterator<CartaAnimal> itr = this.getIterador();
+		int posicion = 0;
+		CartaAnimal ca = null;
+		boolean encontrado = false;
+		while (itr.hasNext() && !encontrado) {
+			ca = itr.next();
+			if (ca.info().equals(fuerza + " " + color)) {
+				encontrado = true;
+			} else {
 				posicion++;
 			}
 		}
-		posicion=posicion-1;
-		System.out.println("Posicion: "+posicion);
-		if(posicion>=0 && this.lista.get(posicion).getFuerza()<fuerza && this.lista.get(posicion).getFuerza()!=7  ) {
+		posicion = posicion - 1;
+		System.out.println("Posicion: " + posicion);
+		if (posicion >= 0 && this.lista.get(posicion).getFuerza() < fuerza
+				&& this.lista.get(posicion).getFuerza() != 7) {
 			this.lista.remove(ca);
-			this.lista.add(posicion,ca);
+			this.lista.add(posicion, ca);
 		}
 	}
-	
-	public void avanzarCartaCanguro(int num){
-		if(lista.size()>=3){
-			if(num==1){
-				
-				CartaAnimal carta= lista.get(lista.size()-2);
+
+	public void avanzarCartaCanguro(int num) {
+		if (lista.size() >= 3) {
+			if (num == 1) {
+
+				CartaAnimal carta = lista.get(lista.size() - 2);
 				this.lista.remove(carta);
-				this.lista.add(lista.size()-1,carta);
-				
-			}else if(num==2){
-				
-				CartaAnimal carta= lista.get(lista.size()-1);
+				this.lista.add(lista.size() - 1, carta);
+
+			} else if (num == 2) {
+
+				CartaAnimal carta = lista.get(lista.size() - 1);
 				this.lista.remove(carta);
-				this.lista.add(lista.size()-2, carta);
-				
-			}else{
+				this.lista.add(lista.size() - 2, carta);
+
+			} else {
 				System.out.println("inserta un 1 o un 2");
-				
-				
+
 			}
-		}else if(lista.size()==2){
-				
-				CartaAnimal carta= lista.get(lista.size()-1);
-				this.lista.remove(carta);
-				this.lista.add(lista.size()-1,carta);
-			
-			
+		} else if (lista.size() == 2) {
+
+			CartaAnimal carta = lista.get(lista.size() - 1);
+			this.lista.remove(carta);
+			this.lista.add(lista.size() - 1, carta);
+
 		}
-		
+
 	}
-	
-	public boolean buscarPorFuerza(int pFuerza){
-		int i=0;
-		boolean enc= false;
-		while(i<lista.size()-1 && !enc){
-			CartaAnimal c=lista.get(i);
-			if(c.getFuerza()==pFuerza){
-				enc=true;
-			}else{
+
+	public boolean buscarPorFuerza(int pFuerza) {
+		int i = 0;
+		boolean enc = false;
+		while (i < lista.size() - 1 && !enc) {
+			CartaAnimal c = lista.get(i);
+			if (c.getFuerza() == pFuerza) {
+				enc = true;
+			} else {
 				i++;
 			}
 		}
-	
+
 		return enc;
 	}
-	public int posicionDeLaCarta(int pFuerza){
-		int i=0;
-		boolean enc=false;
-		while(i<lista.size() && !enc){
-			if(lista.get(i).getFuerza()==pFuerza){
-				enc=true;
-			}else{
+
+	public int posicionDeLaCarta(int pFuerza) {
+		int i = 0;
+		boolean enc = false;
+		while (i < lista.size() && !enc) {
+			if (lista.get(i).getFuerza() == pFuerza) {
+				enc = true;
+			} else {
 				i++;
 			}
 		}
-		if(enc){
+		if (enc) {
 			return i;
-		}else{
+		} else {
 			return -1;
 		}
-		
+
 	}
-	public void avanzarCartaMono(){
-		CartaAnimal c= lista.get(lista.size()-1);
-		lista.remove(lista.size()-1);
-		lista.add(0,c);
-		
+
+	public void avanzarCartaMono() {
+		CartaAnimal c = lista.get(lista.size() - 1);
+		lista.remove(lista.size() - 1);
+		lista.add(0, c);
+
 	}
-	public void anadirCartaEnPos(int pos, CartaAnimal c){
-		lista.add(pos,c);
+
+	public void anadirCartaEnPos(int pos, CartaAnimal c) {
+		lista.add(pos, c);
 	}
-	
-	public void avanzarCartaCocodrilo(){
+
+	public void avanzarCartaCocodrilo() {
 		System.out.println("iniciar animalada cocodrilo");
-		int i=lista.size()-2;
-		boolean salir=false;
-		while(i>=0 &&!salir ){
-			if(lista.get(i).getFuerza()<10 && lista.get(i).getFuerza()!=7){
-					EsLoQueHay.getEsLoQueHay().addLast(lista.get(i));
-					lista.remove(i);
-					i--;
-				}else{
-					salir=true;
-				}
-				
-			
+		int i = lista.size() - 2;
+		boolean salir = false;
+		while (i >= 0 && !salir) {
+			if (lista.get(i).getFuerza() < 10 && lista.get(i).getFuerza() != 7) {
+				EsLoQueHay.getEsLoQueHay().addLast(lista.get(i));
+				lista.remove(i);
+				i--;
+			} else {
+				salir = true;
+			}
+
 		}
 	}
-	public void avanzarCartaLeon(){
-		CartaAnimal c= lista.get(lista.size()-1);
-		lista.remove(lista.size()-1);
-		lista.add(0,c);
+
+	public void avanzarCartaLeon() {
+		CartaAnimal c = lista.get(lista.size() - 1);
+		lista.remove(lista.size() - 1);
+		lista.add(0, c);
 	}
 
 	public void ordenarSegunFuerza() {
 		Collections.sort(this.lista);
 	}
+
 	public void repelerMayorFuerza() {
 		System.out.println("//////////////////////////////////////////////////////////////////////////////////////");
-		int loops=2;
-		if(lista.size()<2) {
-			loops=lista.size();
+		int loops = 2;
+		if (lista.size() < 2) {
+			loops = lista.size();
 		}
-		for(int i=0; i<loops;i++) {
+		for (int i = 0; i < loops; i++) {
 			System.out.println("1dentro");
-			int fuerzamax=buscarCartaAlta();
+			int fuerzamax = buscarCartaAlta();
 			System.out.println(fuerzamax);
-			//Iterator<CartaAnimal> it= this.getIterador();
-			/*CartaAnimal c=null;
-			while(it.hasNext()){
-				c=it.next();
-				if(c.getFuerza()==fuerzamax && c.getFuerza()!=1){
-					
-					
+			// Iterator<CartaAnimal> it= this.getIterador();
+			/*
+			 * CartaAnimal c=null; while(it.hasNext()){ c=it.next();
+			 * if(c.getFuerza()==fuerzamax && c.getFuerza()!=1){
+			 * 
+			 * 
+			 * } }
+			 */
+			if (fuerzamax != 0) {
+				for (int j = lista.size() - 1; j >= 0; j--) {
+					if (lista.get(j).getFuerza() == fuerzamax && lista.get(j).getFuerza() != 1) {
+						EsLoQueHay.getEsLoQueHay().addLast(lista.get(j));
+						borrarCarta(lista.get(j));
+						imprimirlista();
+					}
 				}
-			}*/
-			if(fuerzamax!=0) {
-			for (int j=lista.size()-1;j>=0;j--) {
-				if(lista.get(j).getFuerza()==fuerzamax && lista.get(j).getFuerza()!=1) {
-					EsLoQueHay.getEsLoQueHay().addLast(lista.get(j));
-					borrarCarta(lista.get(j));
-					imprimirlista();
-				}
-			}
 			}
 		}
 	}
+
 	private int buscarCartaAlta() {
 		System.out.println("dentro2");
-		Iterator<CartaAnimal> it= this.getIterador();
-		CartaAnimal c=null;
-		int max=1;
-		int i=lista.size()-1;
-		while(i>0) {
-			if(lista.get(i).getFuerza()>max) {
-				max=lista.get(i).getFuerza();
+		Iterator<CartaAnimal> it = this.getIterador();
+		CartaAnimal c = null;
+		int max = 1;
+		int i = lista.size() - 1;
+		while (i > 0) {
+			if (lista.get(i).getFuerza() > max) {
+				max = lista.get(i).getFuerza();
 			}
 			i--;
-			
+
 		}
-		/*while(it.hasNext()){
-			c=it.next();
-			if(c.getFuerza()>=max){
-				max=c.getFuerza();
-			}
-		}*/
+		/*
+		 * while(it.hasNext()){ c=it.next(); if(c.getFuerza()>=max){ max=c.getFuerza();
+		 * } }
+		 */
 		return max;
 	}
+
 	public void asustarLoro(int pos) {
 		EsLoQueHay.getEsLoQueHay().addLast(lista.get(pos));
 		borrarCarta(lista.get(pos));

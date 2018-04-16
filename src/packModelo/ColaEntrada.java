@@ -48,19 +48,23 @@ public class ColaEntrada extends ObservableAbstracto {
 		}
 		return lleno;
 	}
+
 	public String infoCartas() {
 		return this.cartas.infoCartas();
 	}
-	
+
 	public void echarCarta(CartaAnimal pCarta) {
 		cartas.add(pCarta);
-		//En el if poner los animales que tengan las animaladas implementadas. mantener este if hasta que esten todas las animaladas hechas 
-		if(pCarta.getFuerza()==12||pCarta.getFuerza()==11|| pCarta.getFuerza()==9 || pCarta.getFuerza()==8 ||pCarta.getFuerza()==3 || pCarta.getFuerza()==4 || pCarta.getFuerza()==10||pCarta.getFuerza()==2||pCarta.getFuerza()==1) {
-		//if(pCarta.getFuerza()==1||pCarta.getFuerza()==2) {
+		// En el if poner los animales que tengan las animaladas implementadas. mantener
+		// este if hasta que esten todas las animaladas hechas
+		if (pCarta.getFuerza() == 12 || pCarta.getFuerza() == 11 || pCarta.getFuerza() == 9 || pCarta.getFuerza() == 8
+				|| pCarta.getFuerza() == 3 || pCarta.getFuerza() == 4 || pCarta.getFuerza() == 10
+				|| pCarta.getFuerza() == 2 || pCarta.getFuerza() == 1) {
+			// if(pCarta.getFuerza()==1||pCarta.getFuerza()==2) {
 			pCarta.ejecutarAnimalada();
-			
+
 		}
-		
+
 		this.revisarCola();
 		System.out.println("Notificar Cola entrada");
 		this.notificar(this, this.infoCartas());
@@ -78,6 +82,7 @@ public class ColaEntrada extends ObservableAbstracto {
 	public void avanzarCartaHipopotamo(int fuerza, String color) {
 		cartas.avanzarCartaHipopotamo(fuerza, color);
 	}
+
 	public void avanzarCartaJirafa(int fuerza, String color) {
 		cartas.avanzarCartaJirafa(fuerza, color);
 	}
@@ -85,12 +90,14 @@ public class ColaEntrada extends ObservableAbstracto {
 	public void ordenar() {
 		this.cartas.ordenarSegunFuerza();
 	}
+
 	public void repelerMofeta() {
 		System.out.println("pr3");
 		this.cartas.repelerMayorFuerza();
 	}
+
 	public void asustarLoro(int pos) {
 		System.out.println("pr3");
-		this.cartas.asustarLoro( pos);
+		this.cartas.asustarLoro(pos);
 	}
 }
