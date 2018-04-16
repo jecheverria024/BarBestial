@@ -28,7 +28,7 @@ public class CartaAnimal extends CartaGeneral implements Comparable<CartaAnimal>
 		return fuerza+" "+color.name();
 	}
 	public void ejecutarAnimalada() {
-		System.out.println("pr");
+		
 		this.animal.ejecutarAnimalada(fuerza, color.name());
 	}
 
