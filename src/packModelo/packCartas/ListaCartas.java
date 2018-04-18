@@ -298,5 +298,6 @@ public class ListaCartas {
 	}
 	public void invertirFoca() {
 		
+		Collections.reverse(lista);
 	}
 }
