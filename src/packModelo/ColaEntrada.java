@@ -60,7 +60,6 @@ public class ColaEntrada extends ObservableAbstracto {
 		if (pCarta.getFuerza() == 12 || pCarta.getFuerza() == 11 || pCarta.getFuerza() == 9 || pCarta.getFuerza() == 8
 				|| pCarta.getFuerza() == 3 || pCarta.getFuerza() == 4 || pCarta.getFuerza() == 10
 				|| pCarta.getFuerza() == 2 || pCarta.getFuerza() == 1|| pCarta.getFuerza() == 6) {
-			// if(pCarta.getFuerza()==1||pCarta.getFuerza()==2) {
 			pCarta.ejecutarAnimalada();
 
 		}
