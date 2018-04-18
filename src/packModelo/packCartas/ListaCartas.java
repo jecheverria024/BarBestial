@@ -296,4 +296,7 @@ public class ListaCartas {
 		EsLoQueHay.getEsLoQueHay().addLast(lista.get(pos));
 		borrarCarta(lista.get(pos));
 	}
+	public void invertirFoca() {
+		
+	}
 }

@@ -97,4 +97,7 @@ public class ColaEntrada extends ObservableAbstracto {
 	public void asustarLoro(int pos) {
 		this.cartas.asustarLoro(pos);
 	}
+	public void invertirFoca() {
+		this.cartas.invertirFoca();
+	}
 }
