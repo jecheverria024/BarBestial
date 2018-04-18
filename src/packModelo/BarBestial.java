@@ -41,7 +41,6 @@ public class BarBestial {
 	}
 
 	public boolean jugar(int pos) {
-		System.out.println("jugandooo");
 		jugador.echarCarta(pos);
 		if (ordenador.tieneCartas()) {
 			ordenador.jugar();

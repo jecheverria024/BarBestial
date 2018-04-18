@@ -66,7 +66,6 @@ public class ColaEntrada extends ObservableAbstracto {
 		}
 
 		this.revisarCola();
-		System.out.println("Notificar Cola entrada");
 		this.notificar(this, this.infoCartas());
 	}
 

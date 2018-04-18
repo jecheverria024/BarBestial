@@ -32,7 +32,6 @@ public class Usuario extends ObservableAbstracto {
 		if (this.mazo.longitud() != 0) {
 			this.cogerCarta();
 		}
-		System.out.println("Notificar usuario");
 
 	}
 
