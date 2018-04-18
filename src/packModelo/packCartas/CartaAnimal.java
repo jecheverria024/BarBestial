@@ -42,4 +42,12 @@ public class CartaAnimal extends CartaGeneral implements Comparable<CartaAnimal>
         }
         return 0;
 	}
+	
+	public boolean esRecurrente() {
+		if (this.fuerza==11 || this.fuerza==10 || this.fuerza==8 || this.fuerza==7){
+			return true;
+		}
+		else 
+			return false;
+	}	
 }
